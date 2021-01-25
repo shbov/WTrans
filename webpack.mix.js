@@ -18,6 +18,9 @@ mix.js('resources/js/app.js', 'public/js')
         require('autoprefixer'),
     ]);
 
+mix.js('resources/js/glide.js', 'public/js');
+mix.sass('resources/sass/main.scss', 'public/css');
+
 if (mix.inProduction()) {
     mix.version();
 }
