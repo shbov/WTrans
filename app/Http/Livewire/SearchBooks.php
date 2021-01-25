@@ -54,6 +54,7 @@ class SearchBooks extends Component
     public function updatedQuery()
     {
         $this->books = Book::where('name', 'like', '%' . $this->query . '%')
+            ->limit(6)
             ->get()
             ->toArray();
     }

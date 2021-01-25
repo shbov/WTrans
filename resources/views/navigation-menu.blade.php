@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -12,15 +12,15 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
-                        {{ __('Все переводы') }}
+                    <x-jet-nav-link href="{{ route('books.index') }}" :active="request()->routeIs('books.index')">
+                        {{ __('Все') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
-                        {{ __('Фильмы') }}
+                    @php($categories = \App\Models\Category::get())
+                    @foreach ($categories as $cat)
+                    <x-jet-nav-link href="{{ route('category.show', $cat->id) }}">
+                        {{ $cat->name }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
-                        {{ __('Сериалы') }}
-                    </x-jet-nav-link>
+                    @endforeach
                     <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
                         {{ __('Пользователи') }}
                     </x-jet-nav-link>
@@ -195,9 +195,18 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
-                {{ __('Главная страница') }}
+            <x-jet-responsive-nav-link href="{{ route('books.index') }}" :active="request()->routeIs('books.index')">
+                {{ __('Все') }}
             </x-jet-responsive-nav-link>
+
+            @php($categories = \App\Models\Category::get())
+            @foreach ($categories as $cat)
+            <x-jet-responsive-nav-link href="{{ route('category.show', $cat->id) }}"
+                :active="request()->routeIs('index')">
+                {{ $cat->name }}
+            </x-jet-responsive-nav-link>
+
+            @endforeach
         </div>
 
         <!-- Responsive Settings Options -->
@@ -280,13 +289,11 @@
         @else
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="space-y-1">
-                <x-jet-responsive-nav-link href="{{ route('login') }}"
-                    :active="request()->routeIs('login')">
+                <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
                     {{ __('Войти в аккаунт') }}
                 </x-jet-responsive-nav-link>
 
-                <x-jet-responsive-nav-link href="{{ route('register') }}"
-                    :active="request()->routeIs('register')">
+                <x-jet-responsive-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
                     {{ __('Регистрация') }}
                 </x-jet-responsive-nav-link>
             </div>

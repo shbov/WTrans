@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Book;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +16,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AdminUserSeeder::class,
+            LanguageSeeder::class,
+            CategorySeeder::class,
         ]);
+        
+
+        Book::factory(100)->create();
     }
 }

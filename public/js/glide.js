@@ -3693,11 +3693,15 @@ var Glide$1 = function (_Core) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _glidejs_glide__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @glidejs/glide */ "./node_modules/@glidejs/glide/dist/glide.esm.js");
 
-new _glidejs_glide__WEBPACK_IMPORTED_MODULE_0__.default('.glide', {
-  type: 'carousel',
+var glides = document.querySelectorAll('.glide'),
+    settings = {
+  type: 'slider',
   startAt: 0,
-  perView: 4
-}).mount();
+  perView: 3
+};
+glides.forEach(function (item) {
+  new _glidejs_glide__WEBPACK_IMPORTED_MODULE_0__.default(item, settings).mount();
+});
 
 /***/ })
 
