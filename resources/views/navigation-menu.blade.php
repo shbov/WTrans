@@ -28,7 +28,7 @@
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-                @livewire('search-books')
+                @livewire('search')
 
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures() && Auth::check())
