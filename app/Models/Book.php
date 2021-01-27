@@ -63,7 +63,7 @@ class Book extends Model
         return $this->belongsToMany(User::class);
     }
 
-    // is in ... 
+    // is in ...
     public function isBookMember($user_id)
     {
         return $this->users()->where('user_id', $user_id)->exists();

@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-
 class BookController extends Controller
 {
     public function index()

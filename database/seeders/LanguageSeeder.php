@@ -14,7 +14,6 @@ class LanguageSeeder extends Seeder
      */
     public function run()
     {
-
         $languages = [
             "aa" => [
                 "name" => "Afar",
