@@ -1,11 +1,13 @@
 /******/ (() => {
     // webpackBootstrap
     /******/ var __webpack_modules__ = {
-        /***/ "./node_modules/alpinejs/dist/alpine.js":
+        /***/
+        "./node_modules/alpinejs/dist/alpine.js":
             /*!**********************************************!*\
-                !*** ./node_modules/alpinejs/dist/alpine.js ***!
-                \**********************************************/
-            /***/ function (module) {
+            !*** ./node_modules/alpinejs/dist/alpine.js ***!
+            \**********************************************/
+            /***/
+            function (module) {
                 (function (global, factory) {
                     true ? (module.exports = factory()) : 0;
                 })(this, function () {
@@ -3317,8 +3319,8 @@
         /***/
         "./node_modules/axios/index.js":
             /*!*************************************!*\
-          !*** ./node_modules/axios/index.js ***!
-          \*************************************/
+      !*** ./node_modules/axios/index.js ***!
+      \*************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 module.exports = __webpack_require__(
                     /*! ./lib/axios */ "./node_modules/axios/lib/axios.js"
@@ -3330,8 +3332,8 @@
         /***/
         "./node_modules/axios/lib/adapters/xhr.js":
             /*!************************************************!*\
-          !*** ./node_modules/axios/lib/adapters/xhr.js ***!
-          \************************************************/
+      !*** ./node_modules/axios/lib/adapters/xhr.js ***!
+      \************************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -3623,8 +3625,8 @@
         /***/
         "./node_modules/axios/lib/axios.js":
             /*!*****************************************!*\
-          !*** ./node_modules/axios/lib/axios.js ***!
-          \*****************************************/
+      !*** ./node_modules/axios/lib/axios.js ***!
+      \*****************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -3717,8 +3719,8 @@
         /***/
         "./node_modules/axios/lib/cancel/Cancel.js":
             /*!*************************************************!*\
-          !*** ./node_modules/axios/lib/cancel/Cancel.js ***!
-          \*************************************************/
+      !*** ./node_modules/axios/lib/cancel/Cancel.js ***!
+      \*************************************************/
             /***/ (module) => {
                 "use strict";
 
@@ -3747,8 +3749,8 @@
         /***/
         "./node_modules/axios/lib/cancel/CancelToken.js":
             /*!******************************************************!*\
-          !*** ./node_modules/axios/lib/cancel/CancelToken.js ***!
-          \******************************************************/
+      !*** ./node_modules/axios/lib/cancel/CancelToken.js ***!
+      \******************************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -3816,8 +3818,8 @@
         /***/
         "./node_modules/axios/lib/cancel/isCancel.js":
             /*!***************************************************!*\
-          !*** ./node_modules/axios/lib/cancel/isCancel.js ***!
-          \***************************************************/
+      !*** ./node_modules/axios/lib/cancel/isCancel.js ***!
+      \***************************************************/
             /***/ (module) => {
                 "use strict";
 
@@ -3831,8 +3833,8 @@
         /***/
         "./node_modules/axios/lib/core/Axios.js":
             /*!**********************************************!*\
-          !*** ./node_modules/axios/lib/core/Axios.js ***!
-          \**********************************************/
+      !*** ./node_modules/axios/lib/core/Axios.js ***!
+      \**********************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -3975,8 +3977,8 @@
         /***/
         "./node_modules/axios/lib/core/InterceptorManager.js":
             /*!***********************************************************!*\
-          !*** ./node_modules/axios/lib/core/InterceptorManager.js ***!
-          \***********************************************************/
+      !*** ./node_modules/axios/lib/core/InterceptorManager.js ***!
+      \***********************************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -4044,8 +4046,8 @@
         /***/
         "./node_modules/axios/lib/core/buildFullPath.js":
             /*!******************************************************!*\
-          !*** ./node_modules/axios/lib/core/buildFullPath.js ***!
-          \******************************************************/
+      !*** ./node_modules/axios/lib/core/buildFullPath.js ***!
+      \******************************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -4081,8 +4083,8 @@
         /***/
         "./node_modules/axios/lib/core/createError.js":
             /*!****************************************************!*\
-          !*** ./node_modules/axios/lib/core/createError.js ***!
-          \****************************************************/
+      !*** ./node_modules/axios/lib/core/createError.js ***!
+      \****************************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -4120,8 +4122,8 @@
         /***/
         "./node_modules/axios/lib/core/dispatchRequest.js":
             /*!********************************************************!*\
-          !*** ./node_modules/axios/lib/core/dispatchRequest.js ***!
-          \********************************************************/
+      !*** ./node_modules/axios/lib/core/dispatchRequest.js ***!
+      \********************************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -4231,8 +4233,8 @@
         /***/
         "./node_modules/axios/lib/core/enhanceError.js":
             /*!*****************************************************!*\
-          !*** ./node_modules/axios/lib/core/enhanceError.js ***!
-          \*****************************************************/
+      !*** ./node_modules/axios/lib/core/enhanceError.js ***!
+      \*****************************************************/
             /***/ (module) => {
                 "use strict";
 
@@ -4291,8 +4293,8 @@
         /***/
         "./node_modules/axios/lib/core/mergeConfig.js":
             /*!****************************************************!*\
-          !*** ./node_modules/axios/lib/core/mergeConfig.js ***!
-          \****************************************************/
+      !*** ./node_modules/axios/lib/core/mergeConfig.js ***!
+      \****************************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -4443,8 +4445,8 @@
         /***/
         "./node_modules/axios/lib/core/settle.js":
             /*!***********************************************!*\
-          !*** ./node_modules/axios/lib/core/settle.js ***!
-          \***********************************************/
+      !*** ./node_modules/axios/lib/core/settle.js ***!
+      \***********************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -4488,8 +4490,8 @@
         /***/
         "./node_modules/axios/lib/core/transformData.js":
             /*!******************************************************!*\
-          !*** ./node_modules/axios/lib/core/transformData.js ***!
-          \******************************************************/
+      !*** ./node_modules/axios/lib/core/transformData.js ***!
+      \******************************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -4520,8 +4522,8 @@
         /***/
         "./node_modules/axios/lib/defaults.js":
             /*!********************************************!*\
-          !*** ./node_modules/axios/lib/defaults.js ***!
-          \********************************************/
+      !*** ./node_modules/axios/lib/defaults.js ***!
+      \********************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
                 /* provided dependency */ var process = __webpack_require__(
@@ -4668,8 +4670,8 @@
         /***/
         "./node_modules/axios/lib/helpers/bind.js":
             /*!************************************************!*\
-          !*** ./node_modules/axios/lib/helpers/bind.js ***!
-          \************************************************/
+      !*** ./node_modules/axios/lib/helpers/bind.js ***!
+      \************************************************/
             /***/ (module) => {
                 "use strict";
 
@@ -4689,8 +4691,8 @@
         /***/
         "./node_modules/axios/lib/helpers/buildURL.js":
             /*!****************************************************!*\
-          !*** ./node_modules/axios/lib/helpers/buildURL.js ***!
-          \****************************************************/
+      !*** ./node_modules/axios/lib/helpers/buildURL.js ***!
+      \****************************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -4778,8 +4780,8 @@
         /***/
         "./node_modules/axios/lib/helpers/combineURLs.js":
             /*!*******************************************************!*\
-          !*** ./node_modules/axios/lib/helpers/combineURLs.js ***!
-          \*******************************************************/
+      !*** ./node_modules/axios/lib/helpers/combineURLs.js ***!
+      \*******************************************************/
             /***/ (module) => {
                 "use strict";
 
@@ -4804,8 +4806,8 @@
         /***/
         "./node_modules/axios/lib/helpers/cookies.js":
             /*!***************************************************!*\
-          !*** ./node_modules/axios/lib/helpers/cookies.js ***!
-          \***************************************************/
+      !*** ./node_modules/axios/lib/helpers/cookies.js ***!
+      \***************************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -4886,8 +4888,8 @@
         /***/
         "./node_modules/axios/lib/helpers/isAbsoluteURL.js":
             /*!*********************************************************!*\
-          !*** ./node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
-          \*********************************************************/
+      !*** ./node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
+      \*********************************************************/
             /***/ (module) => {
                 "use strict";
 
@@ -4912,8 +4914,8 @@
         /***/
         "./node_modules/axios/lib/helpers/isAxiosError.js":
             /*!********************************************************!*\
-          !*** ./node_modules/axios/lib/helpers/isAxiosError.js ***!
-          \********************************************************/
+      !*** ./node_modules/axios/lib/helpers/isAxiosError.js ***!
+      \********************************************************/
             /***/ (module) => {
                 "use strict";
 
@@ -4937,8 +4939,8 @@
         /***/
         "./node_modules/axios/lib/helpers/isURLSameOrigin.js":
             /*!***********************************************************!*\
-          !*** ./node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
-          \***********************************************************/
+      !*** ./node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
+      \***********************************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -4947,9 +4949,9 @@
                 );
 
                 module.exports = utils.isStandardBrowserEnv()
-                    ? // Standard browser envs have full support of the APIs needed
-                      // to test whether the request URL is of the same origin as
-                      // current location.
+                    ? // Standard browser envs have full support of the APIs
+                      // needed to test whether the request URL is of the same
+                      // origin as current location.
                       (function standardBrowserEnv() {
                           var msie = /(msie|trident)/i.test(
                               navigator.userAgent
@@ -5020,8 +5022,8 @@
                               );
                           };
                       })()
-                    : // Non standard browser envs (web workers, react-native) lack
-                      // needed support.
+                    : // Non standard browser envs (web workers, react-native)
+                      // lack needed support.
                       (function nonStandardBrowserEnv() {
                           return function isURLSameOrigin() {
                               return true;
@@ -5034,8 +5036,8 @@
         /***/
         "./node_modules/axios/lib/helpers/normalizeHeaderName.js":
             /*!***************************************************************!*\
-          !*** ./node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
-          \***************************************************************/
+      !*** ./node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
+      \***************************************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -5064,8 +5066,8 @@
         /***/
         "./node_modules/axios/lib/helpers/parseHeaders.js":
             /*!********************************************************!*\
-          !*** ./node_modules/axios/lib/helpers/parseHeaders.js ***!
-          \********************************************************/
+      !*** ./node_modules/axios/lib/helpers/parseHeaders.js ***!
+      \********************************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -5152,8 +5154,8 @@
         /***/
         "./node_modules/axios/lib/helpers/spread.js":
             /*!**************************************************!*\
-          !*** ./node_modules/axios/lib/helpers/spread.js ***!
-          \**************************************************/
+      !*** ./node_modules/axios/lib/helpers/spread.js ***!
+      \**************************************************/
             /***/ (module) => {
                 "use strict";
 
@@ -5190,8 +5192,8 @@
         /***/
         "./node_modules/axios/lib/utils.js":
             /*!*****************************************!*\
-          !*** ./node_modules/axios/lib/utils.js ***!
-          \*****************************************/
+      !*** ./node_modules/axios/lib/utils.js ***!
+      \*****************************************/
             /***/ (module, __unused_webpack_exports, __webpack_require__) => {
                 "use strict";
 
@@ -5582,8 +5584,8 @@
         /***/
         "./resources/js/app.js":
             /*!*****************************!*\
-          !*** ./resources/js/app.js ***!
-          \*****************************/
+      !*** ./resources/js/app.js ***!
+      \*****************************/
             /***/ (
                 __unused_webpack_module,
                 __unused_webpack_exports,
@@ -5603,8 +5605,8 @@
         /***/
         "./resources/js/bootstrap.js":
             /*!***********************************!*\
-          !*** ./resources/js/bootstrap.js ***!
-          \***********************************/
+      !*** ./resources/js/bootstrap.js ***!
+      \***********************************/
             /***/ (
                 __unused_webpack_module,
                 __unused_webpack_exports,
@@ -5646,8 +5648,8 @@
         /***/
         "./node_modules/lodash/lodash.js":
             /*!***************************************!*\
-          !*** ./node_modules/lodash/lodash.js ***!
-          \***************************************/
+      !*** ./node_modules/lodash/lodash.js ***!
+      \***************************************/
             /***/ function (module, exports, __webpack_require__) {
                 /* module decorator */ module = __webpack_require__.nmd(module);
                 var __WEBPACK_AMD_DEFINE_RESULT__;
@@ -26530,8 +26532,8 @@
         /***/
         "./resources/sass/main.scss":
             /*!**********************************!*\
-          !*** ./resources/sass/main.scss ***!
-          \**********************************/
+      !*** ./resources/sass/main.scss ***!
+      \**********************************/
             /***/ (
                 __unused_webpack_module,
                 __webpack_exports__,
@@ -26547,8 +26549,8 @@
         /***/
         "./resources/css/app.css":
             /*!*******************************!*\
-          !*** ./resources/css/app.css ***!
-          \*******************************/
+      !*** ./resources/css/app.css ***!
+      \*******************************/
             /***/ (
                 __unused_webpack_module,
                 __webpack_exports__,
@@ -26564,8 +26566,8 @@
         /***/
         "./node_modules/process/browser.js":
             /*!*****************************************!*\
-          !*** ./node_modules/process/browser.js ***!
-          \*****************************************/
+      !*** ./node_modules/process/browser.js ***!
+      \*****************************************/
             /***/ (module) => {
                 // shim for using process in browser
                 var process = (module.exports = {});
@@ -26806,7 +26808,8 @@
         /******/
     } // expose the modules object (__webpack_modules__)
     /******/
-    /******/ /******/ __webpack_require__.m = __webpack_modules__; // the startup function // It's empty as some runtime module handles the default behavior
+    /******/ /******/ __webpack_require__.m = __webpack_modules__; // the startup function // It's empty as some runtime
+    // module handles the default behavior
     /******/
     /******/ /******/ /******/ __webpack_require__.x = (
         x
@@ -26876,13 +26879,11 @@
             /******/ ["./resources/sass/main.scss"],
             /******/ ["./resources/css/app.css"],
             /******/
-        ]; // no chunk on demand loading // no prefetching // no preloaded // no HMR // no HMR manifest
-        /******/ /******/
-        /******/ /******/
-        /******/ /******/
-        /******/ /******/
-        /******/ /******/
-        /******/ var checkDeferredModules = (x) => {}; // install a JSONP callback for chunk loading
+        ]; /******/ /******/ /******/ /******/ /******/ // no chunk on demand loading // no prefetching // no preloaded // no HMR
+        // // no HMR manifest
+        /******/ /******/ /******/ /******/ /******/ /******/ var checkDeferredModules = (
+            x
+        ) => {}; // install a JSONP callback for chunk loading
         /******/
         /******/ /******/ var webpackJsonpCallback = (
             parentChunkLoadingFunction,
@@ -26893,7 +26894,8 @@
                 moreModules,
                 runtime,
                 executeModules,
-            ] = data; // add "moreModules" to the modules object, // then flag all "chunkIds" as loaded and fire callback
+            ] = data; // add "moreModules" to the modules object, // then flag all
+            // "chunkIds" as loaded and fire callback
             /******/ /******/ /******/ var moduleId,
                 chunkId,
                 i = 0,
@@ -26971,7 +26973,8 @@
         }
         /******/ var startup = __webpack_require__.x;
         /******/ __webpack_require__.x = () => {
-            /******/ // reset startup function so it can be called again when more startup
+            /******/ // reset startup function so it can be called again when more
+            // startup
             // code is added
             /******/ __webpack_require__.x = startup || ((x) => {});
             /******/ return (checkDeferredModules = checkDeferredModulesImpl)();

@@ -5,8 +5,8 @@
         /***/
         "./node_modules/@glidejs/glide/dist/glide.esm.js":
             /*!*******************************************************!*\
-          !*** ./node_modules/@glidejs/glide/dist/glide.esm.js ***!
-          \*******************************************************/
+      !*** ./node_modules/@glidejs/glide/dist/glide.esm.js ***!
+      \*******************************************************/
             /***/ (
                 __unused_webpack_module,
                 __webpack_exports__,
@@ -4102,8 +4102,8 @@
         /***/
         "./resources/js/glide.js":
             /*!*******************************!*\
-          !*** ./resources/js/glide.js ***!
-          \*******************************/
+      !*** ./resources/js/glide.js ***!
+      \*******************************/
             /***/ (
                 __unused_webpack_module,
                 __webpack_exports__,
