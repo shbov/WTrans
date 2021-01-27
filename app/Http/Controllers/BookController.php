@@ -8,8 +8,15 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
+/**
+ * Class BookController
+ * @package App\Http\Controllers
+ */
 class BookController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index()
     {
         $books = Book::paginate(16);
@@ -17,6 +24,10 @@ class BookController extends Controller
         return view('book.index', ['books' => $books]);
     }
 
+    /**
+     * @param Book $book
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function show(Book $book)
     {
         // $r1 = Role::firstOrCreate(["name" => "Superadmin"]);
@@ -35,11 +46,18 @@ class BookController extends Controller
         return view('book.show', ['book' => $book]);
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function create()
     {
         return view('book.create');
     }
 
+    /**
+     * @param Book $book
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function join(Book $book)
     {
         $user_id = Auth::user()->id;
@@ -52,6 +70,10 @@ class BookController extends Controller
         return redirect()->route('books.show', $book->id)->with('success', 'Вы присоединились к переводу.');
     }
 
+    /**
+     * @param Book $book
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function leave(Book $book)
     {
         $user_id = Auth::user()->id;
