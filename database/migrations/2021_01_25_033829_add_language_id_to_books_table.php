@@ -15,9 +15,9 @@ class AddLanguageIdToBooksTable extends Migration
     {
         Schema::table('books', function (Blueprint $table) {
             $table->unsignedBigInteger('language_id');
-            $table->foreign('language_id')->references('id')->on('languages')->nullable();
-            $table->unsignedBigInteger('original_language_id');
-            $table->foreign('original_language_id')->references('id')->on('languages')->nullable();
+            $table->foreign('language_id')->references('id')->on('languages');
+            $table->unsignedBigInteger('native_language_id');
+            $table->foreign('native_language_id')->references('id')->on('languages');
         });
     }
 
@@ -32,8 +32,8 @@ class AddLanguageIdToBooksTable extends Migration
             $table->dropForeign(['language_id']);
             $table->dropColumn('language_id');
 
-            $table->dropForeign(['original_language_id']);
-            $table->dropColumn('original_language_id');
+            $table->dropForeign(['native_language_id']);
+            $table->dropColumn('native_language_id');
         });
     }
 }

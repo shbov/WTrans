@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function show(Category $category)
     {
-        $books = Book::with('language', 'originalLanguage')->where('category_id', $category->id)->paginate(16);
+        $books = Book::getBooksByCategory($category->id)->paginate(16);
 
         return view('category.show', ['books' => $books, 'category' => $category]);
     }

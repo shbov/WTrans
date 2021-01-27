@@ -33,18 +33,30 @@ class Search extends Component
     public function updatedQuery()
     {
         if (substr($this->query, 0, 1) == '@') {
-            $this->users = User::where('name', 'like', '%' . substr($this->query, 1) . '%')
-                ->limit(6)
-                ->get()
-                ->toArray();
-            $this->type = 'users';
-        } else {
-            $this->books = Book::where('name', 'like', '%' . $this->query . '%')
-                ->limit(6)
-                ->get()
-                ->toArray();
-            $this->type = 'books';
+            return $this->searchUsers();
         }
+
+        return $this->searchBooks();
+    }
+
+    public function searchUsers()
+    {
+        $this->type = 'users';
+
+        $this->users = User::where('name', 'like', '%' . substr($this->query, 1) . '%')
+            ->limit(6)
+            ->get()
+            ->toArray();
+    }
+
+    public function searchBooks()
+    {
+        $this->type = 'books';
+
+        $this->books = Book::where('name', 'like', '%' . $this->query . '%')
+            ->limit(6)
+            ->get()
+            ->toArray();
     }
 
     public function render()

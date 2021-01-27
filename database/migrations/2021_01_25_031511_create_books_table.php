@@ -19,7 +19,7 @@ class CreateBooksTable extends Migration
             $table->text('name');
             $table->text('native_name');
 
-            $table->text('desc');
+            $table->text('desc')->nullable();
 
             $table->timestamps();
         });

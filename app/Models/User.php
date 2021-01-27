@@ -17,8 +17,8 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
-use HasRoles;
-use Impersonate;
+    use HasRoles;
+    use Impersonate;
     use Notifiable;
     use TwoFactorAuthenticatable;
 
@@ -62,4 +62,11 @@ use Impersonate;
     protected $appends = [
         'profile_photo_url',
     ];
+
+    // Relations
+    
+    public function books()
+    {
+        return $this->belongsToMany(Book::class);
+    }
 }
