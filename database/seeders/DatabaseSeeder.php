@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             LanguageSeeder::class,
             CategorySeeder::class,
         ]);
-        
+
 
         Book::factory(100)->create();
     }

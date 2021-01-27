@@ -64,7 +64,7 @@ class User extends Authenticatable
     ];
 
     // Relations
-    
+
     public function books()
     {
         return $this->belongsToMany(Book::class);
