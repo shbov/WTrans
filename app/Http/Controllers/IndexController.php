@@ -9,7 +9,7 @@ class IndexController extends Controller
     public function index()
     {
         $books = [];
-        // $books = Book::with('language', 'originalLanguage')->paginate(15);
+        // $books = Book::with('language', 'nativeLanguage')->paginate(15);
 
         return view('index', ['books' => $books]);
     }

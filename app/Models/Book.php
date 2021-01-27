@@ -19,8 +19,8 @@ class Book extends Model
         return $this->belongsTo('App\Models\Language', 'language_id');
     }
 
-    public function originalLanguage()
+    public function nativeLanguage()
     {
-        return $this->belongsTo('App\Models\Language', 'original_language_id');
+        return $this->belongsTo('App\Models\Language', 'native_language_id');
     }
 }

@@ -17,7 +17,7 @@ class CreateBooksTable extends Migration
             $table->id();
 
             $table->text('name');
-            $table->text('original_name');
+            $table->text('native_name');
 
             $table->text('desc');
 

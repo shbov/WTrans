@@ -25,10 +25,10 @@ class BookFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'original_name' => $this->faker->name,
+            'native_name' => $this->faker->name,
             'desc' => $this->faker->paragraph(2),
             'language_id' => Language::inRandomOrder()->first()->id,
-            'original_language_id' => Language::inRandomOrder()->first()->id,
+            'native_language_id' => Language::inRandomOrder()->first()->id,
             'category_id' => Category::inRandomOrder()->first()->id
         ];
     }

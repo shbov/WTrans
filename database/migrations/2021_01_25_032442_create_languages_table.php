@@ -17,7 +17,7 @@ class CreateLanguagesTable extends Migration
             $table->id();
 
             $table->string('name');
-            $table->string('original_name');
+            $table->string('native');
 
             // $table->timestamps();
         });
