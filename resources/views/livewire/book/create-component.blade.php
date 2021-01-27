@@ -64,7 +64,7 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-jet-button wire:loading.attr="disabled">
+        <x-jet-button wire:loading.attr="disabled" wire:keydown.enter="store">
             {{ __('Создать') }}
         </x-jet-button>
     </x-slot>

@@ -23,21 +23,20 @@ class Book extends Model
     protected static function boot()
     {
         parent::boot();
-        $user = Auth::user();
 
-        if ($user) {
+        if (Auth::user()) {
             static::creating(function ($model) {
-                $model->created_by = $user->id;
+                $model->created_by = Auth::user()->id;
 
-                $user->books()->attach($model->id);
+                Auth::user()->books()->attach($model->id);
             });
 
             self::created(function ($model) {
-                $user->books()->attach($model->id);
+                Auth::user()->books()->attach($model->id);
             });
 
             self::deleting(function () {
-                $user->books()->detach();
+                Auth::user()->books()->detach();
             });
         }
     }

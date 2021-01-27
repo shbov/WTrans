@@ -22,15 +22,46 @@
             @endauth
         </div>
     </x-slot>
-
     <div class="py-12">
-        <div class="max-w-9xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-                @auth
-                    @foreach (auth()->user()->books as $book)
-                        <li>{{ $book->name }} [is owner? {{ $book->isBookOwner(auth()->user()->id)?"true":"false" }}]</li>
-                    @endforeach
-                @endauth
+        <div class="max-w-7xl mx-auto md:px-6 lg:px-8">
+            <div class="md:grid md:grid-cols-3 md:gap-6">
+                <div class="md:col-span-1">
+                    <div class="shadow overflow-hidden sm:rounded-md">
+                        <div class="bg-white">
+                            <img src="https://insidepulse.com/wp-content/uploads/2018/09/Fox-911-Season-2-banner.jpg"
+                                alt="9-1-1" class="img-16-9" loading="lazy">
+                            <div class="py-4 px-4">
+                                <h4 class="text-md mb-2">{{ $book->language->name }} <span
+                                        class="text-gray-300">/</span> {{ $book->nativeLanguage->name }}</h4>
+                                <p>{!! $book->desc !!}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5 md:mt-0 md:col-span-2">
+                    @auth
+                    @if(session('error'))
+                    <div role="alert" class="mb-3">
+                        <div class="border border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                            <p>{{ session('error') }}</p>
+                        </div>
+                    </div>
+                    @endif
+                    @if(session('success'))
+                    <div role="alert" class="mb-3">
+                        <div class="border border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+                            <p>{{ session('success') }}</p>
+                        </div>
+                    </div>
+                    @endif
+                    @endauth
+                    <div class="shadow overflow-hidden sm:rounded-md">
+                        <div class="px-4 py-5 bg-white sm:p-6">
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -40,7 +71,7 @@
     <script src="https://unpkg.com/tippy.js@6"></script>
     <script>
         tippy('#bookTitle-{{ $book->id }}', {
-            content: '[{{ $book->language->name }}] {{ $book->native_name }}',
+            content: '[{{ $book->nativeLanguage->name }}] {{ $book->native_name }}',
         });
     </script>
     @endpush
