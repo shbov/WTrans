@@ -27,27 +27,6 @@ class Book extends Model
         'category_id'
     ];
 
-    protected static function boot()
-    {
-        parent::boot();
-
-        if (Auth::user()) {
-            static::creating(function ($model) {
-                $model->created_by = Auth::user()->id;
-
-                Auth::user()->books()->attach($model->id);
-            });
-
-            self::created(function ($model) {
-                Auth::user()->books()->attach($model->id);
-            });
-
-            self::deleting(function () {
-                Auth::user()->books()->detach();
-            });
-        }
-    }
-
     // Relations
 
     /**
