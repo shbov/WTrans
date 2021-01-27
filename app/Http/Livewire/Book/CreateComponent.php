@@ -6,7 +6,6 @@ use App\Models\Book;
 use App\Models\Language;
 use Livewire\Component;
 
-
 class CreateComponent extends Component
 {
     public $LanguageOptions;
