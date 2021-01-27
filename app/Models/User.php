@@ -12,10 +12,6 @@ use Spatie\Permission\Traits\HasRoles;
 use Lab404\Impersonate\Models\Impersonate;
 use Laravel\Sanctum\HasApiTokens;
 
-/**
- * Class User
- * @package App\Models
- */
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -69,9 +65,6 @@ class User extends Authenticatable
 
     // Relations
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
     public function books()
     {
         return $this->belongsToMany(Book::class);

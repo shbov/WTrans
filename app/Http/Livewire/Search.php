@@ -6,32 +6,13 @@ use Livewire\Component;
 use App\Models\Book;
 use App\Models\User;
 
-/**
- * Class Search
- * @package App\Http\Livewire
- */
 class Search extends Component
 {
-    /**
-     * @var
-     */
     public $query;
-    /**
-     * @var
-     */
     public $books;
-    /**
-     * @var
-     */
     public $users;
-    /**
-     * @var
-     */
     public $type;
 
-    /**
-     * @var string[]
-     */
     public $searchPlaceholders = [
         'Что-то потеряли?',
         'Поиск переводов',
@@ -39,25 +20,16 @@ class Search extends Component
         '@username'
     ];
 
-    /**
-     *
-     */
     public function mount()
     {
         $this->resetFilters();
     }
 
-    /**
-     *
-     */
     public function resetFilters()
     {
         $this->reset('query', 'books', 'type', 'users');
     }
 
-    /**
-     *
-     */
     public function updatedQuery()
     {
         if (substr($this->query, 0, 1) == '@') {
@@ -67,9 +39,6 @@ class Search extends Component
         return $this->searchBooks();
     }
 
-    /**
-     *
-     */
     public function searchUsers()
     {
         $this->type = 'users';
@@ -80,9 +49,6 @@ class Search extends Component
             ->toArray();
     }
 
-    /**
-     *
-     */
     public function searchBooks()
     {
         $this->type = 'books';
@@ -93,9 +59,6 @@ class Search extends Component
             ->toArray();
     }
 
-    /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
     public function render()
     {
         return view('livewire.search');

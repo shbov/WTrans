@@ -5,15 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use Illuminate\Support\Facades\Auth;
 
-/**
- * Class BookController
- * @package App\Http\Controllers
- */
 class BookController extends Controller
 {
-    /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
     public function index()
     {
         $books = Book::paginate(16);
@@ -21,27 +14,16 @@ class BookController extends Controller
         return view('book.index', ['books' => $books]);
     }
 
-    /**
-     * @param Book $book
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
     public function show(Book $book)
     {
         return view('book.show', ['book' => $book]);
     }
 
-    /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
     public function create()
     {
         return view('book.create');
     }
 
-    /**
-     * @param Book $book
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function join(Book $book)
     {
         $user_id = Auth::user()->id;
@@ -54,10 +36,6 @@ class BookController extends Controller
         return redirect()->route('books.show', $book->id)->with('success', 'Вы присоединились к переводу.');
     }
 
-    /**
-     * @param Book $book
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function leave(Book $book)
     {
         $user_id = Auth::user()->id;

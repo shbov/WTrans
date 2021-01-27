@@ -6,24 +6,11 @@ use App\Models\Book;
 use App\Models\Language;
 use Livewire\Component;
 
-/**
- * Class CreateComponent
- * @package App\Http\Livewire\Book
- */
 class CreateComponent extends Component
 {
-    /**
-     * @var
-     */
     public $LanguageOptions;
-    /**
-     * @var
-     */
     public $book;
 
-    /**
-     * @var string[]
-     */
     protected $rules = [
         'book.name' => 'required|min:4|max:255',
         'book.native_name' => 'required|min:4|max:255',
@@ -32,9 +19,6 @@ class CreateComponent extends Component
         'book.desc' => 'nullable'
     ];
 
-    /**
-     * @var string[]
-     */
     protected $validationAttributes = [
         'book.name' => 'название',
         'book.native_name' => 'название',
@@ -43,9 +27,6 @@ class CreateComponent extends Component
         'book.desc' => 'описание'
     ];
 
-    /**
-     * @var string[]
-     */
     protected $messages = [
         'book.name.required' => ':Attribute обязательно для заполнения.',
         'book.native_name.required' => ':Attribute обязательно для заполнения.',
@@ -53,17 +34,11 @@ class CreateComponent extends Component
         'book.language_id.required' => ':Attribute обязателен для заполнения.',
     ];
 
-    /**
-     *
-     */
     public function mount()
     {
         $this->mountLanguageOptions();
     }
 
-    /**
-     *
-     */
     public function mountLanguageOptions()
     {
         $languages = Language::all();
@@ -73,9 +48,6 @@ class CreateComponent extends Component
         });
     }
 
-    /**
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function store()
     {
         $this->validate();
@@ -85,9 +57,6 @@ class CreateComponent extends Component
         return redirect()->route('books.show', $created_book->id);
     }
 
-    /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
     public function render()
     {
         return view('livewire.book.create-component');
