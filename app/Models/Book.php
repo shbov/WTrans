@@ -39,7 +39,7 @@ class Book extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 
     // is in ...
@@ -53,6 +53,10 @@ class Book extends Model
         return $this->created_by == $user_id;
     }
 
+    public function owner()
+    {
+        return User::find($this->created_by);
+    }
     // Scopes
 
     public function scopeGetBooksByCategory($query, $category_id)

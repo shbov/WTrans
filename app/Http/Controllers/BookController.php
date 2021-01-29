@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
+
     public function index()
     {
         $books = Book::paginate(16);
@@ -26,29 +27,25 @@ class BookController extends Controller
 
     public function join(Book $book)
     {
-        $user_id = Auth::user()->id;
-
-        if ($book->isBookMember($user_id)) {
+        if ($book->isBookMember(Auth::user()->id)) {
             return redirect()->route('books.show', $book->id)->with('error', 'Вы уже присоединились к переводу.');
         }
 
-        $book->users()->attach($user_id);
+        $book->users()->attach(Auth::user()->id);
         return redirect()->route('books.show', $book->id)->with('success', 'Вы присоединились к переводу.');
     }
 
     public function leave(Book $book)
     {
-        $user_id = Auth::user()->id;
-
-        if ($book->isBookOwner($user_id)) {
+        if ($book->isBookOwner(Auth::user()->id)) {
             return redirect()->route('books.show', $book->id)->with('error', 'Создатель не может покинуть перевод, его нужно удалить.');
         }
 
-        if (!$book->isBookMember($user_id)) {
+        if (!$book->isBookMember(Auth::user()->id)) {
             return redirect()->route('books.show', $book->id)->with('error', 'Вы не находитесь в переводе [soon be fixed]');
         }
 
-        $book->users()->detach($user_id);
+        $book->users()->detach(Auth::user()->id);
         return redirect()->route('books.show', $book->id)->with('success', 'Вы покинули перевод.');
     }
 }
