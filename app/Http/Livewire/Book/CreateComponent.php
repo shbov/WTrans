@@ -52,9 +52,9 @@ class CreateComponent extends Component
     {
         $this->validate();
 
-        $created_book = Book::create($this->book);
+        $createdBook = Book::create($this->book);
 
-        return redirect()->route('books.show', $created_book->id);
+        return redirect()->route('books.show', $createdBook->id);
     }
 
     public function render()

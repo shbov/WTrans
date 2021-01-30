@@ -8,10 +8,7 @@ use App\Models\User;
 
 class Search extends Component
 {
-    public $query;
-    public $books;
-    public $users;
-    public $type;
+    public $query, $books, $users, $type;
 
     public $searchPlaceholders = [
         'Что-то потеряли?',

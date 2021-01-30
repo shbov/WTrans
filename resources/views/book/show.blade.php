@@ -2,7 +2,8 @@
     <x-slot name="header">
         <div class="sm:flex justify-between items-center">
             <div class="flex flex-col mb-3 sm:mb-0">
-                <h1 id="bookNative-{{ $book->id }}" class="mb-2 sm:mb-0 font-semibold text-md sm:text-xl text-gray-800 leading-tight inline-flex">
+                <h1 id="bookNative-{{ $book->id }}"
+                    class="mb-2 sm:mb-0 font-semibold text-md sm:text-xl text-gray-800 leading-tight inline-flex">
                     {{ $book->native_name }}
                 </h1>
                 <h4 id="bookTranslated-{{ $book->id }}" class="text-xs sm:text-sm text-gray-500">
@@ -27,7 +28,7 @@
         </div>
     </x-slot>
     <div class="py-12">
-        <div class="max-w-7xl mx-auto md:px-6 lg:px-8">
+        <div class="max-w-9xl mx-auto md:px-6 lg:px-8">
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1 xl:h-screen xl:sticky top-4">
                     <div class="shadow overflow-hidden sm:rounded-md">
@@ -78,79 +79,12 @@
                     </div>
                     @endif
                     @endauth
-                    <div class="shadow overflow-hidden sm:rounded-md">
+                    <div class="overflow-hidden sm:rounded-md">
                         <!-- This example requires Tailwind CSS v2.0+ -->
                         <div class="flex flex-col">
                             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                        <table class="min-w-full divide-y divide-gray-200">
-                                            <thead class="bg-gray-50">
-                                                <tr>
-                                                    <th scope="col"
-                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                        Название
-                                                    </th>
-                                                    <th scope="col"
-                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                        Статус
-                                                    </th>
-                                                    <th scope="col"
-                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                        Активность
-                                                    </th>
-                                                    <th scope="col"
-                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                        Добавлено
-                                                    </th>
-                                                    <th scope="col"
-                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                        Готово
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="bg-white divide-y divide-gray-200">
-                                                @for ($i = 0; $i < 20; $i++) <tr>
-                                                    <td class="px-6 py-4 whitespace-nowrap">
-                                                        <div class="flex items-center">
-                                                            <div>
-                                                                <div class="text-sm font-medium text-gray-900">
-                                                                    Jane Cooper
-                                                                </div>
-                                                                <div class="text-sm text-gray-500">
-                                                                    jane.cooper@example.com
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="px-6 py-4 whitespace-nowrap">
-                                                        <div class="text-sm text-gray-900">
-                                                            Переводится
-                                                        </div>
-                                                    </td>
-                                                    <td class="px-6 py-4 whitespace-nowrap">
-                                                        <div class="text-sm text-gray-900">
-                                                            23 мин.
-                                                        </div>
-                                                    </td>
-                                                    <td class="px-6 py-4 whitespace-nowrap">
-                                                        <div class="text-sm text-gray-900">
-                                                            19:00
-                                                        </div>
-                                                    </td>
-                                                    <td
-                                                        class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                        <div class="text-sm text-gray-900">
-                                                            87.8% (872 / 993)
-                                                        </div>
-                                                        <a href="#"
-                                                            class="text-indigo-600 hover:text-indigo-900">Скачать</a>
-                                                    </td>
-                                                    </tr>
-                                                    @endfor
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    @livewire('book.chapters-component', ['book_id' => $book->id])
                                 </div>
                             </div>
                         </div>
@@ -159,7 +93,7 @@
             </div>
         </div>
     </div>
-    @push('scripts')
+    @prepend('scripts')
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <script>
@@ -170,5 +104,5 @@
             content: '[{{ $book->language->name }}] {{ $book->language->native }}',
         });
     </script>
-    @endpush
+    @endprepend
 </x-app-layout>

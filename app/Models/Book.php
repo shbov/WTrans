@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Chapter;
 
 class Book extends Model
 {
@@ -19,6 +19,7 @@ class Book extends Model
         'native_language_id',
         'category_id'
     ];
+
 
     // Relations
 
@@ -42,7 +43,13 @@ class Book extends Model
         return $this->belongsToMany(User::class)->withTimestamps();
     }
 
-    // is in ...
+    public function chapters()
+    {
+        return $this->hasMany(Chapter::class);
+    }
+
+
+    // is ...
     public function isBookMember($user_id)
     {
         return $this->users()->where('user_id', $user_id)->exists();
@@ -57,6 +64,8 @@ class Book extends Model
     {
         return User::find($this->created_by);
     }
+
+
     // Scopes
 
     public function scopeGetBooksByCategory($query, $category_id)
