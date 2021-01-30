@@ -24,7 +24,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('books/{book}/join', [BookController::class, 'join'])->name('books.join');
     Route::get('books/{book}/leave', [BookController::class, 'leave'])->name('books.leave');
 
-    Route::resource('books', BookController::class)->except(['create', 'index', 'show'])->middleware('isBookAdmin');
+    Route::resource('books', BookController::class)->except(['create', 'index', 'show']);
 });
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
