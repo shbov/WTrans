@@ -39,10 +39,7 @@ class BookController extends Controller
             return redirect()->route('books.show', $book->id)->with('error', 'Вы уже присоединились к переводу.');
         }
 
-        $book->users()->attach(Auth::user()->id);
-
-        Auth::user()->givePermissionTo('books.show.' . $book->id);
-
+        Auth::user()->joinBook($book);
         return redirect()->route('books.show', $book->id)->with('success', 'Вы присоединились к переводу.');
     }
 
@@ -55,13 +52,10 @@ class BookController extends Controller
         }
 
         if (!$book->isBookMember(Auth::user()->id)) {
-            return redirect()->route('books.show', $book->id)->with('error', 'Вы не находитесь в переводе [soon be fixed]');
+            return redirect()->route('books.show', $book->id)->with('error', 'Вы не находитесь в переводе');
         }
 
-        $book->users()->detach(Auth::user()->id);
-
-        Auth::user()->revokePermissionTo('books.show.' . $book->id);
-
+        Auth::user()->leaveBook($book);
         return redirect()->route('books.show', $book->id)->with('success', 'Вы покинули перевод.');
     }
 }

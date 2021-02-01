@@ -6,13 +6,27 @@
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
                             @foreach ($books as $book)
-                            <li class="glide__slide">
-                                <div class="py-2 bg-gray-400 flex justify-center">
-                                    {{ $book->name }}
+                            <div class="p-2">
+                                <div class="shadow cursor-pointer overflow-hidden sm:rounded-md"
+                                    onclick="location.href='{{ route('books.show', $book->id) }}'">
+                                    <div class="bg-white">
+                                        <img src="https://insidepulse.com/wp-content/uploads/2018/09/Fox-911-Season-2-banner.jpg"
+                                            alt="9-1-1" class="img-16-9" loading="lazy">
+                                        <div class="py-4 px-4">
+                                            <div class="flex flex-col mb-3 sm:mb-0">
+                                                <h1
+                                                    class="mb-2 sm:mb-0 font-semibold text-md text-gray-800 leading-tight inline-flex">
+                                                    {{ $book->native_name }}
+                                                </h1>
+                                                <h4 class="text-xs  text-gray-500">
+                                                    {{ $book->name }}
+                                                </h4>
+                                            </div>
+                                            <p class="text-sm my-3">{!! $book->desc !!}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </li>
-                            {{-- @empty --}}
-                            {{-- <li>Нет ни одного доступного перевода. <a href="#">Добавить новый?</a></li> --}}
+                            </div>
                             @endforeach
                         </ul>
                     </div>

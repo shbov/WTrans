@@ -31,8 +31,8 @@ class BookPolicy
      */
     public function view(?User $user, Book $book)
     {
-        return true || $user->can('books.view.' . $book->id);
-        // Логика закрытых книг пока не сделана :/
+        // true – проверка на  [open/close] Book
+        return true || ($user && $book->isBookMember($user->id));
     }
 
     /**
@@ -43,7 +43,7 @@ class BookPolicy
      */
     public function create(User $user)
     {
-        return true || $user->can('books.create');
+        return $user->can('books.create');
     }
 
     /**
@@ -55,7 +55,7 @@ class BookPolicy
      */
     public function update(User $user, Book $book)
     {
-        return $user->id === $book->created_by;
+        return $book->isBookOwner($user->id);
     }
 
     /**
@@ -67,7 +67,7 @@ class BookPolicy
      */
     public function delete(User $user, Book $book)
     {
-        return $user->id === $book->created_by;
+        return $book->isBookOwner($user->id);
     }
 
     /**
@@ -103,6 +103,7 @@ class BookPolicy
      */
     public function join(User $user, Book $book)
     {
+        // Тут нужна еще проверка на [open/close] Book
         return $user->can('books.join');
     }
 
@@ -115,6 +116,7 @@ class BookPolicy
      */
     public function leave(User $user, Book $book)
     {
+        // Тут нужна еще проверка на [open/close] Book
         return $user->can('books.leave');
     }
 }

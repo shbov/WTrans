@@ -19,7 +19,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 my-8">
                     @foreach ($books as $book)
-                    <div class="shadow  cursor-pointer overflow-hidden sm:rounded-md"
+                    <div class="shadow cursor-pointer overflow-hidden sm:rounded-md"
                         onclick="location.href='{{ route('books.show', $book->id) }}'">
                         <div class="bg-white">
                             <img src="https://insidepulse.com/wp-content/uploads/2018/09/Fox-911-Season-2-banner.jpg"

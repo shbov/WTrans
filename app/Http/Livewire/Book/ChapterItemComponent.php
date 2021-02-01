@@ -8,7 +8,7 @@ use Livewire\Component;
 class ChapterItemComponent extends Component
 {
     public $chapter;
-    public $name, $mediainfo, $statusMessage, $created_at;
+    public $name, $mediainfo, $statusMessage, $updated_at, $created_at;
 
     public function mount()
     {
@@ -21,6 +21,7 @@ class ChapterItemComponent extends Component
 
         $this->name = $chapterModel->name;
         $this->mediainfo = $chapterModel->mediainfo;
+        $this->updated_at = $chapterModel->updated_at;
         $this->created_at = $chapterModel->created_at;
         $this->statusMessage = Chapter::getStatus($chapterModel->status);
     }

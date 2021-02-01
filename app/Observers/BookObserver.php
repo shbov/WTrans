@@ -4,7 +4,6 @@ namespace App\Observers;
 
 use App\Models\Book;
 use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Permission;
 
 /**
  * Class BookObserver
@@ -31,9 +30,6 @@ class BookObserver
     public function created(Book $book)
     {
         if (Auth::check()) {
-            $permission = Permission::create(['name' => 'books.view.' . $book->id]);
-            Auth::user()->givePermissionTo($permission);
-
             Auth::user()->books()->attach($book->id);
         }
     }
@@ -59,7 +55,6 @@ class BookObserver
     {
         if (Auth::check()) {
             Auth::user()->books()->detach($book->id);
-            Permission::findByName('books.view.' . $book->id)->delete();
         }
     }
 

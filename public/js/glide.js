@@ -3697,7 +3697,7 @@ var glides = document.querySelectorAll(".glide"),
     settings = {
   type: "slider",
   startAt: 0,
-  perView: 3
+  perView: 4
 };
 glides.forEach(function (item) {
   new _glidejs_glide__WEBPACK_IMPORTED_MODULE_0__.default(item, settings).mount();
