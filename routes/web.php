@@ -34,3 +34,7 @@ Route::get('/category/{category}', [CategoryController::class, 'show'])->name('c
 Route::resource('users', UserController::class);
 
 Route::resource('books', BookController::class)->only(['index', 'show']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
