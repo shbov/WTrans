@@ -12,14 +12,15 @@
             </div>
             @auth
             <div>
-                @if($book->isBookMember(auth()->user()->id))
+                @if(auth()->user()->can('books.leave') && $book->isBookMember(auth()->user()->id))
                 <a href="{{ route('books.leave', $book->id) }}"
                     class="ont-semibold text-xs uppercase tracking-widest">Выйти из перевода</a>
-                @else
+                @elseif(auth()->user()->can('books.join'))
                 <a href="{{ route('books.join', $book->id) }}"
                     class="ont-semibold text-xs uppercase tracking-widest">Вступить</a>
                 @endif
-                @if($book->isBookOwner(auth()->user()->id))
+
+                @if($book->isBookOwner(auth()->user()->id) || auth()->user()->can('books.edit.*'))
                 <a href="{{ route('books.edit', $book->id) }}"
                     class="ml-3 px-4 py-2 border rounded-md font-semibold text-xs uppercase tracking-widest shadow-sm transition ease-in-out duration-150 bg-gray-800 hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 text-white">Изменить</a>
                 @endif
@@ -96,13 +97,11 @@
     @prepend('scripts')
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
-    <script>
-        tippy('#bookNative-{{ $book->id }}', {
-            content: '[{{ $book->nativeLanguage->name }}] {{ $book->nativeLanguage->native }}',
-        });
-        tippy('#bookTranslated-{{ $book->id }}', {
-            content: '[{{ $book->language->name }}] {{ $book->language->native }}',
-        });
-    </script>
     @endprepend
+
+    @push('scriptsTippy')
+    tippy('#bookNative-{{ $book->id }}', {content: '[{{ $book->nativeLanguage->name }}]
+    {{ $book->nativeLanguage->native }}'});
+    tippy('#bookTranslated-{{ $book->id }}', {content: '[{{ $book->language->name }}] {{ $book->language->native }}'});
+    @endpush
 </x-app-layout>

@@ -12,7 +12,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Spatie\Permission\Traits\HasRoles;
 use Lab404\Impersonate\Models\Impersonate;
 use Laravel\Sanctum\HasApiTokens;
-
+use Laravel\Jetstream\HasTeams;
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -23,6 +23,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use SoftDeletes;
+    use HasTeams;
 
     /**
      * The attributes that are mass assignable.

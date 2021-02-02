@@ -21,9 +21,9 @@ class Chapter extends Model
         return $this->belongsTo(Book::class);
     }
 
-    public static function getStatus(int $status): String
+    public function getStatus(): String
     {
-        switch ($status) {
+        switch ($this->status) {
             case 1:
                 return '';
             case 2:

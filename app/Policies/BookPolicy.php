@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Models\Book;
 use App\Models\User;
+use Illuminate\Auth\Access\Response;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 
@@ -43,7 +44,7 @@ class BookPolicy
      */
     public function create(User $user)
     {
-        return $user->can('books.create');
+        return $this->checkPerm($user->can('books.create'), 'Вы не можете создавать переводы');
     }
 
     /**
@@ -55,7 +56,7 @@ class BookPolicy
      */
     public function update(User $user, Book $book)
     {
-        return $book->isBookOwner($user->id);
+        return $book->isBookOwner($user->id) || $user->can('books.edit.*');
     }
 
     /**
@@ -67,7 +68,7 @@ class BookPolicy
      */
     public function delete(User $user, Book $book)
     {
-        return $book->isBookOwner($user->id);
+        return $book->isBookOwner($user->id) || $user->can('books.delete.*');
     }
 
     /**
@@ -118,5 +119,10 @@ class BookPolicy
     {
         // Тут нужна еще проверка на [open/close] Book
         return $user->can('books.leave');
+    }
+
+    private function checkPerm(bool $access, string $message)
+    {
+        return $access ? Response::allow() : Response::deny($message);
     }
 }

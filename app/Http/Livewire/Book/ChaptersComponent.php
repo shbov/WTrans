@@ -17,7 +17,7 @@ class ChaptersComponent extends Component
         return view(
             'livewire.book.chapters-component',
             [
-                'chapters' => Chapter::where('book_id', $this->book_id)->paginate(12)
+                'chapters' => Chapter::where('book_id', $this->book_id)->paginate(16)
             ]
         );
     }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da1030265d8bf006c97ce35949cd1594",
+    "content-hash": "5855ce3f1d5c1857c40b83554687f5d3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1129,22 +1129,22 @@
         },
         {
             "name": "kineticamobile/lumki",
-            "version": "v0.1.8",
+            "version": "v0.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kineticamobile/lumki.git",
-                "reference": "137c6d43e7c85a846532618fb8d71c8ec633c55c"
+                "reference": "59652349a7431f3a7e19964eb3544e176d23ae68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kineticamobile/lumki/zipball/137c6d43e7c85a846532618fb8d71c8ec633c55c",
-                "reference": "137c6d43e7c85a846532618fb8d71c8ec633c55c",
+                "url": "https://api.github.com/repos/kineticamobile/lumki/zipball/59652349a7431f3a7e19964eb3544e176d23ae68",
+                "reference": "59652349a7431f3a7e19964eb3544e176d23ae68",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "~5|~6|~7|~8",
                 "lab404/laravel-impersonate": "^1.7",
-                "spatie/laravel-permission": "^3.0"
+                "spatie/laravel-permission": "^3.0|^4.0"
             },
             "require-dev": {
                 "mockery/mockery": "^1.1",
@@ -1199,9 +1199,9 @@
             ],
             "support": {
                 "issues": "https://github.com/kineticamobile/lumki/issues",
-                "source": "https://github.com/kineticamobile/lumki/tree/v0.1.8"
+                "source": "https://github.com/kineticamobile/lumki/tree/v0.1.9"
             },
-            "time": "2021-01-19T11:29:12+00:00"
+            "time": "2021-02-02T08:26:05+00:00"
         },
         {
             "name": "lab404/laravel-impersonate",
@@ -3224,27 +3224,27 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "3.18.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "1c51a5fa12131565fe3860705163e53d7a26258a"
+                "reference": "7936ea9ebbd0d91877109dfeda1659fc4570a6cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/1c51a5fa12131565fe3860705163e53d7a26258a",
-                "reference": "1c51a5fa12131565fe3860705163e53d7a26258a",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/7936ea9ebbd0d91877109dfeda1659fc4570a6cc",
+                "reference": "7936ea9ebbd0d91877109dfeda1659fc4570a6cc",
                 "shasum": ""
             },
             "require": {
-                "illuminate/auth": "^5.8|^6.0|^7.0|^8.0",
-                "illuminate/container": "^5.8|^6.0|^7.0|^8.0",
-                "illuminate/contracts": "^5.8|^6.0|^7.0|^8.0",
-                "illuminate/database": "^5.8|^6.0|^7.0|^8.0",
+                "illuminate/auth": "^6.0|^7.0|^8.0",
+                "illuminate/container": "^6.0|^7.0|^8.0",
+                "illuminate/contracts": "^6.0|^7.0|^8.0",
+                "illuminate/database": "^6.0|^7.0|^8.0",
                 "php": "^7.2.5|^8.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^3.8|^4.0|^5.0|^6.0",
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
                 "phpunit/phpunit": "^8.0|^9.0",
                 "predis/predis": "^1.1"
             },
@@ -3276,7 +3276,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Permission handling for Laravel 5.8 and up",
+            "description": "Permission handling for Laravel 6.0 and up",
             "homepage": "https://github.com/spatie/laravel-permission",
             "keywords": [
                 "acl",
@@ -3290,7 +3290,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-permission/issues",
-                "source": "https://github.com/spatie/laravel-permission/tree/3.18.0"
+                "source": "https://github.com/spatie/laravel-permission/tree/4.0.0"
             },
             "funding": [
                 {
@@ -3298,7 +3298,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-09T14:08:36+00:00"
+            "time": "2021-01-27T23:03:34+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5900,16 +5900,16 @@
         },
         {
             "name": "andrey-helldar/support",
-            "version": "v2.5.1",
+            "version": "v2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andrey-helldar/support.git",
-                "reference": "b555cf0453f4289bd1c361bc548f8d18ccd7f5e0"
+                "reference": "74f3371ef1da516f394728682667cb311dc7bd02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andrey-helldar/support/zipball/b555cf0453f4289bd1c361bc548f8d18ccd7f5e0",
-                "reference": "b555cf0453f4289bd1c361bc548f8d18ccd7f5e0",
+                "url": "https://api.github.com/repos/andrey-helldar/support/zipball/74f3371ef1da516f394728682667cb311dc7bd02",
+                "reference": "74f3371ef1da516f394728682667cb311dc7bd02",
                 "shasum": ""
             },
             "require": {
@@ -5979,7 +5979,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-01-30T17:46:10+00:00"
+            "time": "2021-02-01T13:02:13+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",

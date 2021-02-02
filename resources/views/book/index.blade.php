@@ -4,13 +4,15 @@
             <h2 class="mb-2 sm:mb-0 font-semibold text-xl text-gray-800 leading-tight inline-flex ml-3">
                 Все переводы
             </h2>
+            @auth
+            @if(auth()->user()->can('books.create'))
             <div>
-                @auth
                 <a href="{{ route('books.create') }}"
                     class="ml-3 px-4 py-2 border rounded-md font-semibold text-xs uppercase tracking-widest shadow-sm transition ease-in-out duration-150 bg-gray-800 hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 text-white">Добавить
                     перевод</a>
-                @endauth
             </div>
+            @endif
+            @endauth
         </div>
     </x-slot>
 
