@@ -17,6 +17,11 @@ class CreateChaptersTable extends Migration
             $table->id();
 
             $table->text('name');
+            $table->text('native_name');
+
+            $table->integer('season')->nullable();
+            $table->integer('episode')->nullable();
+
             $table->text('mediainfo');
             $table->enum('status', [1, 2, 3, 4, 5]);
 

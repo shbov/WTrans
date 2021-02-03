@@ -25,7 +25,7 @@ class Chapter extends Model
     {
         switch ($this->status) {
             case 1:
-                return '';
+                return 'Ожидает перевода';
             case 2:
                 return 'Переводится';
             case 3:

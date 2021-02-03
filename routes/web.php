@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
@@ -20,7 +21,7 @@ use App\Http\Controllers\UserController;
 Route::impersonate();
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('books/create/{category_id?}', [BookController::class, 'create'])->name('books.create');
+    Route::get('books/create', [BookController::class, 'create'])->name('books.create');
     Route::get('books/{book}/join', [BookController::class, 'join'])->name('books.join');
     Route::get('books/{book}/leave', [BookController::class, 'leave'])->name('books.leave');
 

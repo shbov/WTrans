@@ -13,6 +13,8 @@ use Spatie\Permission\Traits\HasRoles;
 use Lab404\Impersonate\Models\Impersonate;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasTeams;
+use App\Traits\Jetstream\HasNoPersonalTeams;
+
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -24,6 +26,11 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
     use SoftDeletes;
     use HasTeams;
+
+    use HasNoPersonalTeams {
+        HasNoPersonalTeams::ownsTeam insteadof HasTeams;
+        HasNoPersonalTeams::isCurrentTeam insteadof HasTeams;
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -71,6 +78,11 @@ class User extends Authenticatable
     public function books()
     {
         return $this->belongsToMany(Book::class)->withTimestamps();
+    }
+
+    public function belongsToAnyTeam()
+    {
+        return (bool) optional($this->allTeams())->isNotEmpty();
     }
 
     // Join & leave

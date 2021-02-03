@@ -17,7 +17,8 @@ class Book extends Model
 
         'language_id',
         'native_language_id',
-        'category_id'
+        'category_id',
+        'team_id'
     ];
 
 
@@ -26,6 +27,11 @@ class Book extends Model
     public function category()
     {
         return $this->belongsTo('App\Models\Category', 'category_id');
+    }
+
+    public function team()
+    {
+        return $this->belongsTo('App\Models\Team', 'team_id');
     }
 
     public function language()
@@ -57,12 +63,12 @@ class Book extends Model
 
     public function isBookOwner($user_id)
     {
-        return $this->created_by == $user_id;
+        return $this->owner_id == $user_id;
     }
 
     public function owner()
     {
-        return User::find($this->created_by);
+        return User::find($this->owner_id);
     }
 
 

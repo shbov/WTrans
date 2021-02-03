@@ -20,7 +20,7 @@ class BookObserver
         if (Auth::check()) {
             $user = Auth::user();
 
-            $book->created_by = $user->id;
+            $book->owner_id = $user->id;
         }
     }
 
