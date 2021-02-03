@@ -42,11 +42,11 @@
                             </div>
                             <div class="py-4 px-4">
                                 <h4 class="text-sm text-gray-500 mb-2">
-                                    {{ $book->category()->exists()?$book->category->name:''}}</h4>
+                                    Категория: {{ $book->category()->exists()?$book->category->name:'–'}}</h4>
                                 <p class="text-sm mb-2">{!! $book->desc !!}</p>
 
                                 <h5>
-                                    Владелец – <a
+                                    Владелец: <a
                                         href="{{ route('users.show', $book->owner()->id) }}">{{ $book->owner()->name }}</a>
                                 </h5>
 
@@ -68,24 +68,15 @@
                 </div>
 
                 <div class="mt-5 md:mt-0 md:col-span-2">
-                    @auth
-                    @if(session('error'))
-                    <div role="alert" class="mb-3">
-                        <div class="border border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
-                            <p>{{ session('error') }}</p>
-                        </div>
-                    </div>
-                    @endif
+
                     @if(session('success'))
-                    <div role="alert" class="mb-3">
-                        <div class="border border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
-                            <p>{{ session('success') }}</p>
-                        </div>
-                    </div>
+                    @livewire('alert-component', ['type' => 'success', 'message' => session('success')])
+
+                    @elseif(session('error'))
+                    @livewire('alert-component', ['type' => 'danger', 'message' => session('error')])
                     @endif
-                    @endauth
+
                     <div class="overflow-hidden sm:rounded-md">
-                        <!-- This example requires Tailwind CSS v2.0+ -->
                         <div class="flex flex-col">
                             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">

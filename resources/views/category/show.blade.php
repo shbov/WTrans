@@ -6,7 +6,7 @@
             </h2>
             <div>
                 @auth
-                <a href="{{ route('books.create', $category->id) }}"
+                <a href="{{ route('books.create') }}"
                     class="ml-3 px-4 py-2 border rounded-md font-semibold text-xs uppercase tracking-widest shadow-sm transition ease-in-out duration-150 bg-gray-800 hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 text-white">Добавить
                     перевод</a>
                 @endauth

@@ -23,8 +23,11 @@ class ChapterFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'native_name' => $this->faker->name,
             'mediainfo' => $this->faker->name,
-            'status' => $this->faker->numberBetween(1,5),
+            'status' => $this->faker->numberBetween(1, 5),
+            'season' => $this->faker->numberBetween(1, 3),
+            'episode' => $this->faker->numberBetween(1, 30)
         ];
     }
 }

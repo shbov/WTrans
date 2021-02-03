@@ -63,12 +63,12 @@ class Book extends Model
 
     public function isBookOwner($user_id)
     {
-        return $this->created_by == $user_id;
+        return $this->owner_id == $user_id;
     }
 
     public function owner()
     {
-        return User::find($this->created_by);
+        return User::find($this->owner_id);
     }
 
 

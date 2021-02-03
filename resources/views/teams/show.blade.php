@@ -11,6 +11,8 @@
 
             @livewire('teams.team-member-manager', ['team' => $team])
 
+            @livewire('teams.team-book-manager', ['team' => $team])
+
             @if (Gate::check('delete', $team) && ! $team->personal_team)
                 <x-jet-section-border />
 

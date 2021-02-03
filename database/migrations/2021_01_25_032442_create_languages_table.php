@@ -15,11 +15,10 @@ class CreateLanguagesTable extends Migration
     {
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
+            $table->string('code')->index();
 
             $table->string('name');
             $table->string('native');
-
-            // $table->timestamps();
         });
     }
 

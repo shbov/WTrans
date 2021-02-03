@@ -713,8 +713,11 @@ class LanguageSeeder extends Seeder
             ]
         ];
 
+        $languagesCollection = collect($languages)->map(function ($item, $key) {
+            $item['code'] = $key;
+            return $item;
+        });
 
-
-        DB::table('languages')->insert($languages);
+        DB::table('languages')->insert($languagesCollection->toArray());
     }
 }

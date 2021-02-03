@@ -21,14 +21,14 @@ class UsersAndBooksSeeder extends Seeder
                 Book::factory()
                     ->count(rand(0, 30))
                     ->state(function (array $attributes, User $user) {
-                        return ['created_by' => $user->id];
+                        return ['owner_id' => $user->id];
                     })
             )
             ->count(rand(5, 15))
             ->create()
 
             ->each(function ($user) {
-                Book::where('created_by', $user->id)->each(function ($book) use ($user) {
+                Book::where('owner_id', $user->id)->each(function ($book) use ($user) {
                     $user->books()->attach($book->id);
 
                     Chapter::factory()

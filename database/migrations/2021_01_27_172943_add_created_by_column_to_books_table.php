@@ -14,8 +14,8 @@ class AddCreatedByColumnToBooksTable extends Migration
     public function up()
     {
         Schema::table('books', function (Blueprint $table) {
-            $table->unsignedBigInteger('created_by')->after('created_at');
-            $table->foreign('created_by')->references('id')->on('users');
+            $table->unsignedBigInteger('owner_id')->after('created_at')->nullable();
+            $table->foreign('owner_id')->references('id')->on('users');
         });
     }
 
@@ -27,8 +27,8 @@ class AddCreatedByColumnToBooksTable extends Migration
     public function down()
     {
         Schema::table('books', function (Blueprint $table) {
-            $table->dropForeign('created_by');
-            $table->dropColumn('created_by');
+            $table->dropForeign('owner_id');
+            $table->dropColumn('owner_id');
         });
     }
 }

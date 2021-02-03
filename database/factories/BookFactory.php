@@ -31,7 +31,7 @@ class BookFactory extends Factory
             'language_id' => Language::inRandomOrder()->first()->id,
             'native_language_id' => Language::inRandomOrder()->first()->id,
             'category_id' => Category::inRandomOrder()->first()->id,
-            // 'created_by' => User::factory()
+            // 'owner_id' => User::factory()
         ];
     }
 }
