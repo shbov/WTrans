@@ -50,6 +50,10 @@
                                         href="{{ route('users.show', $book->owner()->id) }}">{{ $book->owner()->name }}</a>
                                 </h5>
 
+                                <h5>
+                                    Команда: {{ $book->team()->exists() ? $book->team->name : "–"}}
+                                </h5>
+
                                 <ul class="my-2">
                                     <li><a
                                             href="//phys-kids.com/index.php?do=search&story={!! $book->native_name !!}&s=tt">phys-kids.com</a>

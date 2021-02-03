@@ -82,7 +82,7 @@ class User extends Authenticatable
 
     public function belongsToAnyTeam()
     {
-        return (bool) optional($this->teams)->isNotEmpty();
+        return (bool) optional($this->allTeams())->isNotEmpty();
     }
 
     // Join & leave
