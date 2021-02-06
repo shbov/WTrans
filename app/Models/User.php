@@ -85,17 +85,14 @@ class User extends Authenticatable
         return (bool) optional($this->allTeams())->isNotEmpty();
     }
 
-    // Join & leave
-
+    // Join & leave the book
     public function joinBook(Book $book): void
     {
         $book->users()->attach($this->id);
-        // $this->givePermissionTo('books.view.' . $book->id);
     }
 
     public function leaveBook(Book $book): void
     {
         $book->users()->detach($this->id);
-        // $this->revokePermissionTo('books.view.' . $book->id);
     }
 }

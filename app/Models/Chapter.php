@@ -16,6 +16,15 @@ class Chapter extends Model
         'status',
     ];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'status' => 'integer',
+    ];
+
     public function book()
     {
         return $this->belongsTo(Book::class);
@@ -34,6 +43,8 @@ class Chapter extends Model
                 return 'Редактируется';
             case 5:
                 return 'Готово';
+            default:
+                return '';
         }
     }
 }

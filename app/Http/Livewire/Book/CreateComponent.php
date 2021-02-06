@@ -67,7 +67,7 @@ class CreateComponent extends Component
 
     public function mountTeamOptions()
     {
-        $user  = Auth::user();
+        $user  = app()->user();
         $teams = $user->allTeams();
 
         $this->teamOptions = $teams->map(function ($item) {
@@ -78,10 +78,9 @@ class CreateComponent extends Component
     public function store()
     {
         $this->validate();
+        $book = Book::create($this->book);
 
-        $createdBook = Book::create($this->book);
-
-        return redirect()->route('books.show', $createdBook->id);
+        return redirect()->route('books.show', $book->id);
     }
 
     public function render()

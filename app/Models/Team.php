@@ -42,6 +42,7 @@ class Team extends JetstreamTeam
         'deleted' => TeamDeleted::class,
     ];
 
+    // Relations
     public function books()
     {
         return $this->hasMany('App\Models\Book');

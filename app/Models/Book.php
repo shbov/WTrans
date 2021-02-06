@@ -21,9 +21,7 @@ class Book extends Model
         'team_id'
     ];
 
-
     // Relations
-
     public function category()
     {
         return $this->belongsTo('App\Models\Category', 'category_id');
@@ -71,9 +69,7 @@ class Book extends Model
         return User::find($this->owner_id);
     }
 
-
     // Scopes
-
     public function scopeGetBooksByCategory($query, $category_id)
     {
         return $query->where('category_id', $category_id);
