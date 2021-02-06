@@ -13,7 +13,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/main.css') }}">
 
     @livewireStyles
 
@@ -185,10 +184,7 @@
 
     @stack('modals')
     @stack('scripts')
-    <script>
-        @stack('scriptsTippy')
-    </script>
-
+    @include('popper::assets')
     @livewireScripts
 </body>
 

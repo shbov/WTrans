@@ -16,7 +16,6 @@
             <select id="category_id" wire:model.defer="book.category_id" autocomplete="category_id" class="border-gray-300 focus:border-indigo-300
                 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full">
                 <option value="undefined" disabled selected="selected">Выбрать категорию</option>
-                <option value="">–</option>
                 @foreach ($categoryOptions as $category)
                 <option value="{{ $category['id'] }}">{{ $category['value'] }}</option>
                 @endforeach
@@ -30,7 +29,6 @@
             <select id="team_id" wire:model.defer="book.team_id" autocomplete="team_id" class="border-gray-300 focus:border-indigo-300
                 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full">
                 <option value="undefined" disabled selected="selected">Выбрать команду</option>
-                <option value="">–</option> 
                 @foreach ($teamOptions as $team)
                 <option value="{{ $team['id'] }}">{{ $team['value'] }}</option>
                 @endforeach

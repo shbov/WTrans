@@ -60,7 +60,7 @@
                         </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-900" id="bookCreated-{{ $chapter->id }}">
+                        <div class="text-sm text-gray-900" @popper({{ $chapter->created_at }})>
                             {{ $chapter->created_at->format('H:i') }}
                         </div>
                     </td>
@@ -71,9 +71,6 @@
                         <a href="#" class="text-indigo-600 hover:text-indigo-900">Скачать</a>
                     </td>
                 </tr>
-                @push('scriptsTippy')
-                tippy('#bookCreated-{{ $chapter->id }}', {content: '{{ $chapter->created_at }}'});
-                @endpush
                 @empty
                 <td class="px-6 py-4 whitespace-nowrap" colspan="5">
                     <div class="text-sm text-gray-900">

@@ -2,11 +2,11 @@
     <x-slot name="header">
         <div class="sm:flex justify-between items-center">
             <div class="flex flex-col mb-3 sm:mb-0">
-                <h1 id="bookNative-{{ $book->id }}"
+                <h1 @popper([{{ $book->nativeLanguage->name }}] {{ $book->nativeLanguage->native }})
                     class="mb-2 sm:mb-0 font-semibold text-md sm:text-xl text-gray-800 leading-tight inline-flex">
                     {{ $book->native_name }}
                 </h1>
-                <h4 id="bookTranslated-{{ $book->id }}" class="text-xs sm:text-sm text-gray-500">
+                <h4 @popper([{{ $book->language->name }}] {{ $book->language->native }}) class="text-xs sm:text-sm text-gray-500">
                     {{ $book->name }}
                 </h4>
             </div>
@@ -89,14 +89,4 @@
             </div>
         </div>
     </div>
-    @prepend('scripts')
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
-    @endprepend
-
-    @push('scriptsTippy')
-    tippy('#bookNative-{{ $book->id }}', {content: '[{{ $book->nativeLanguage->name }}]
-    {{ $book->nativeLanguage->native }}'});
-    tippy('#bookTranslated-{{ $book->id }}', {content: '[{{ $book->language->name }}] {{ $book->language->native }}'});
-    @endpush
 </x-app-layout>

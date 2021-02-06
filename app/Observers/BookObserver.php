@@ -18,7 +18,7 @@ class BookObserver
     public function creating(Book $book)
     {
         if (Auth::check()) {
-            $user = app()->user();
+            $user = Auth::user();
 
             $book->owner_id = $user->id;
         }
@@ -30,7 +30,7 @@ class BookObserver
     public function created(Book $book)
     {
         if (Auth::check()) {
-            app()->user()->books()->attach($book->id);
+            Auth::user()->books()->attach($book->id);
         }
     }
 
@@ -54,7 +54,7 @@ class BookObserver
     public function deleted(Book $book)
     {
         if (Auth::check()) {
-            app()->user()->books()->detach($book->id);
+            Auth::user()->books()->detach($book->id);
         }
     }
 

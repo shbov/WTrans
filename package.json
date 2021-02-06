@@ -25,6 +25,7 @@
         "tailwindcss": "^2.0.1"
     },
     "dependencies": {
-        "@glidejs/glide": "^3.4.1"
+        "@glidejs/glide": "^3.4.1",
+        "laravel-mix-tailwind": "^0.1.2"
     }
 }
