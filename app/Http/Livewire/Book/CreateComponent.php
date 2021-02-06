@@ -3,12 +3,14 @@
 namespace App\Http\Livewire\Book;
 
 use App\Models\Book;
+use App\Models\Category;
 use App\Models\Language;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class CreateComponent extends Component
 {
-    public $LanguageOptions;
+    public $languageOptions, $categoryOptions, $teamOptions;
     public $book;
 
     protected $rules = [
@@ -16,7 +18,9 @@ class CreateComponent extends Component
         'book.native_name' => 'required|min:4|max:255',
         'book.native_language_id' => 'required|exists:languages,id',
         'book.language_id' => 'required|exists:languages,id',
-        'book.desc' => 'nullable'
+        'book.category_id' => 'nullable|exists:categories,id',
+        'book.team_id' => 'nullable|exists:teams,id',
+        'book.desc' => 'nullable',
     ];
 
     protected $validationAttributes = [
@@ -24,7 +28,9 @@ class CreateComponent extends Component
         'book.native_name' => 'название',
         'book.native_language_id' => 'язык',
         'book.language_id' => 'язык',
-        'book.desc' => 'описание'
+        'book.category_id' => 'категория',
+        'book.team_id' => 'команда',
+        'book.desc' => 'описание',
     ];
 
     protected $messages = [
@@ -37,24 +43,44 @@ class CreateComponent extends Component
     public function mount()
     {
         $this->mountLanguageOptions();
+        $this->mountCategoryOptions();
+        $this->mountTeamOptions();
     }
 
     public function mountLanguageOptions()
     {
         $languages = Language::all();
 
-        $this->LanguageOptions = $languages->map(function ($item) {
+        $this->languageOptions = $languages->map(function ($item) {
             return ['id' => $item->id, 'value' => $item->native];
+        });
+    }
+
+    public function mountCategoryOptions()
+    {
+        $categories = Category::all();
+
+        $this->categoryOptions = $categories->map(function ($item) {
+            return ['id' => $item->id, 'value' => $item->name];
+        });
+    }
+
+    public function mountTeamOptions()
+    {
+        $user  = Auth::user();
+        $teams = $user->allTeams();
+
+        $this->teamOptions = $teams->map(function ($item) {
+            return ['id' => $item->id, 'value' => $item->name];
         });
     }
 
     public function store()
     {
         $this->validate();
+        $book = Book::create($this->book);
 
-        $created_book = Book::create($this->book);
-
-        return redirect()->route('books.show', $created_book->id);
+        return redirect()->route('books.show', $book->id);
     }
 
     public function render()

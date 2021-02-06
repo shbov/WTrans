@@ -9,6 +9,7 @@ class Category extends Model
 {
     use HasFactory;
 
+    // Relations
     public function books()
     {
         return $this->hasMany('App\Models\Books');

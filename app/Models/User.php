@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -11,6 +12,8 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Spatie\Permission\Traits\HasRoles;
 use Lab404\Impersonate\Models\Impersonate;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Jetstream\HasTeams;
+use App\Traits\Jetstream\HasNoPersonalTeams;
 
 class User extends Authenticatable
 {
@@ -21,6 +24,13 @@ class User extends Authenticatable
     use Impersonate;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use SoftDeletes;
+    use HasTeams;
+
+    use HasNoPersonalTeams {
+        HasNoPersonalTeams::ownsTeam insteadof HasTeams;
+        HasNoPersonalTeams::isCurrentTeam insteadof HasTeams;
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -67,6 +77,22 @@ class User extends Authenticatable
 
     public function books()
     {
-        return $this->belongsToMany(Book::class);
+        return $this->belongsToMany(Book::class)->withTimestamps();
+    }
+
+    public function belongsToAnyTeam()
+    {
+        return (bool) optional($this->allTeams())->isNotEmpty();
+    }
+
+    // Join & leave the book
+    public function joinBook(Book $book): void
+    {
+        $book->users()->attach($this->id);
+    }
+
+    public function leaveBook(Book $book): void
+    {
+        $book->users()->detach($this->id);
     }
 }

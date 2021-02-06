@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
@@ -19,12 +20,14 @@ use App\Http\Controllers\UserController;
 
 Route::impersonate();
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('books/create/{category_id?}', [BookController::class, 'create'])->name('books.create');
-    Route::get('books/{book}/join', [BookController::class, 'join'])->name('books.join');
-    Route::get('books/{book}/leave', [BookController::class, 'leave'])->name('books.leave');
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
-    Route::resource('books', BookController::class)->except(['create', 'index', 'show'])->middleware('isBookAdmin');
+    Route::group(['middleware' => ['auth:sanctum', 'verified'], 'as' => 'books.', 'prefix' => 'books'], function () {
+        Route::get('{book}/join', [BookController::class, 'join'])->name('join');
+        Route::get('{book}/leave', [BookController::class, 'leave'])->name('leave');
+    });
+
+    Route::resource('books', BookController::class)->except(['index', 'show']);
 });
 
 Route::get('/', [IndexController::class, 'index'])->name('index');

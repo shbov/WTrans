@@ -17,7 +17,8 @@
                     </x-jet-nav-link>
                     @php($categories = \App\Models\Category::get())
                     @foreach ($categories as $cat)
-                    <x-jet-nav-link href="{{ route('category.show', $cat->id) }}" :active="request()->routeIs('category.show') ? request()->route()->parameter('category')->id == $cat->id : false">
+                    <x-jet-nav-link href="{{ route('category.show', $cat->id) }}"
+                        :active="request()->routeIs('category.show') ? request()->route()->parameter('category')->id == $cat->id : false">
                         {{ $cat->name }}
                     </x-jet-nav-link>
                     @endforeach
@@ -38,8 +39,11 @@
                             <span class="inline-flex rounded-md">
                                 <button type="button"
                                     class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
-                                    {{ Auth::user()->currentTeam->name }}
-
+                                    @if(Auth::user()->belongsToAnyTeam())
+                                        {{ Auth::user()->currentTeam->name }}
+                                    @else
+                                    Teams
+                                    @endif
                                     <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd"
@@ -49,18 +53,18 @@
                                 </button>
                             </span>
                         </x-slot>
-
                         <x-slot name="content">
                             <div class="w-60">
                                 <!-- Team Management -->
                                 <div class="block px-4 py-2 text-xs text-gray-400">
                                     {{ __('Manage Team') }}
                                 </div>
-
+                                @if(Auth::user()->belongsToAnyTeam())
                                 <!-- Team Settings -->
                                 <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
                                     {{ __('Team Settings') }}
                                 </x-jet-dropdown-link>
+                                @endif
 
                                 @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                 <x-jet-dropdown-link href="{{ route('teams.create') }}">
@@ -69,11 +73,12 @@
                                 @endcan
 
                                 <div class="border-t border-gray-100"></div>
-
+                                @if(Auth::user()->belongsToAnyTeam())
                                 <!-- Team Switcher -->
                                 <div class="block px-4 py-2 text-xs text-gray-400">
                                     {{ __('Switch Teams') }}
                                 </div>
+                                @endif
 
                                 @foreach (Auth::user()->allTeams() as $team)
                                 <x-jet-switchable-team :team="$team" />
@@ -260,10 +265,12 @@
                 </div>
 
                 <!-- Team Settings -->
+                @if(Auth::user()->belongsToAnyTeam())
                 <x-jet-responsive-nav-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}"
                     :active="request()->routeIs('teams.show')">
                     {{ __('Team Settings') }}
                 </x-jet-responsive-nav-link>
+                @endif
 
                 @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                 <x-jet-responsive-nav-link href="{{ route('teams.create') }}"

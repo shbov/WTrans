@@ -10,6 +10,33 @@
     </x-slot>
 
     <x-slot name="form">
+        <div class="col-span-6 sm:col-span-3">
+            <x-jet-label for="category_id" value="{{ __('Категория') }}" />
+
+            <select id="category_id" wire:model.defer="book.category_id" autocomplete="category_id" class="border-gray-300 focus:border-indigo-300
+                focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full">
+                <option value="undefined" disabled selected="selected">Выбрать категорию</option>
+                @foreach ($categoryOptions as $category)
+                <option value="{{ $category['id'] }}">{{ $category['value'] }}</option>
+                @endforeach
+            </select>
+
+            @error('book.category_id')<p class="text-sm text-red-600 mt-2">{{ $message }}</p>@enderror
+        </div>
+        <div class="col-span-6 sm:col-span-3">
+            <x-jet-label for="category" value="{{ __('Команда') }}" />
+
+            <select id="team_id" wire:model.defer="book.team_id" autocomplete="team_id" class="border-gray-300 focus:border-indigo-300
+                focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full">
+                <option value="undefined" disabled selected="selected">Выбрать команду</option>
+                @foreach ($teamOptions as $team)
+                <option value="{{ $team['id'] }}">{{ $team['value'] }}</option>
+                @endforeach
+            </select>
+
+            @error('book.team_id')<p class="text-sm text-red-600 mt-2">{{ $message }}</p>@enderror
+        </div>
+
         <div class="col-span-6 sm:col-span-2">
             <x-jet-label for="native_language_id" value="{{ __('Язык оригинала') }}" />
 
@@ -17,7 +44,7 @@
                 class="border-gray-300 focus:border-indigo-300
                 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full">
                 <option value="undefined" disabled selected="selected">Выберите язык</option>
-                @foreach ($LanguageOptions as $option)
+                @foreach ($languageOptions as $option)
                 <option value="{{ $option['id'] }}">{{ $option['value'] }}</option>
                 @endforeach
             </select>
@@ -38,7 +65,7 @@
             <select id="language_id" wire:model.defer="book.language_id" autocomplete="language_id" class="border-gray-300 focus:border-indigo-300
             focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full">
                 <option value="undefined" disabled selected="selected">Выберите язык</option>
-                @foreach ($LanguageOptions as $option)
+                @foreach ($languageOptions as $option)
                 <option value="{{ $option['id'] }}">{{ $option['value'] }}</option>
                 @endforeach
             </select>

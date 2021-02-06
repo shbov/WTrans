@@ -53,7 +53,7 @@ class LanguageSeeder extends Seeder
             ],
             "az" => [
                 "name" => "Azerbaijani",
-                "native" => "Azərbaycanca / آذربايجان"
+                "native" => "Azərbaycanca"
             ],
             "ba" => [
                 "name" => "Bashkir",
@@ -85,7 +85,7 @@ class LanguageSeeder extends Seeder
             ],
             "bo" => [
                 "name" => "Tibetan",
-                "native" => "བོད་ཡིག / Bod skad"
+                "native" => "བོད་ཡིག"
             ],
             "br" => [
                 "name" => "Breton",
@@ -118,10 +118,6 @@ class LanguageSeeder extends Seeder
             "cs" => [
                 "name" => "Czech",
                 "native" => "Čeština"
-            ],
-            "cu" => [
-                "name" => "Old Church Slavonic / Old Bulgarian",
-                "native" => "словѣньскъ / slověnĭskŭ"
             ],
             "cv" => [
                 "name" => "Chuvash",
@@ -265,7 +261,7 @@ class LanguageSeeder extends Seeder
             ],
             "ii" => [
                 "name" => "Sichuan Yi",
-                "native" => "ꆇꉙ / 四川彝语"
+                "native" => "ꆇꉙ"
             ],
             "ik" => [
                 "name" => "Inupiak",
@@ -369,7 +365,7 @@ class LanguageSeeder extends Seeder
             ],
             "lo" => [
                 "name" => "Laotian",
-                "native" => "ລາວ / Pha xa lao"
+                "native" => "ລາວ"
             ],
             "lt" => [
                 "name" => "Lithuanian",
@@ -389,7 +385,7 @@ class LanguageSeeder extends Seeder
             ],
             "mh" => [
                 "name" => "Marshallese",
-                "native" => "Kajin Majel / Ebon"
+                "native" => "Kajin Majel"
             ],
             "mi" => [
                 "name" => "Maori",
@@ -477,7 +473,7 @@ class LanguageSeeder extends Seeder
             ],
             "oj" => [
                 "name" => "Ojibwa",
-                "native" => "ᐊᓂᔑᓈᐯᒧᐎᓐ / Anishinaabemowin"
+                "native" => "ᐊᓂᔑᓈᐯᒧᐎᓐ"
             ],
             "om" => [
                 "name" => "Oromo",
@@ -488,16 +484,16 @@ class LanguageSeeder extends Seeder
                 "native" => "ଓଡ଼ିଆ"
             ],
             "os" => [
-                "name" => "Ossetian / Ossetic",
+                "name" => "Ossetian",
                 "native" => "Иронау"
             ],
             "pa" => [
-                "name" => "Panjabi / Punjabi",
-                "native" => "ਪੰਜਾਬੀ / पंजाबी / پنجابي"
+                "name" => "Panjabi",
+                "native" => "ਪੰਜਾਬੀ"
             ],
             "pi" => [
                 "name" => "Pali",
-                "native" => "Pāli / पाऴि"
+                "native" => "Pāli"
             ],
             "pl" => [
                 "name" => "Polish",
@@ -553,7 +549,7 @@ class LanguageSeeder extends Seeder
             ],
             "sh" => [
                 "name" => "Serbo-Croatian",
-                "native" => "Srpskohrvatski / Српскохрватски"
+                "native" => "Srpskohrvatski"
             ],
             "si" => [
                 "name" => "Sinhalese",
@@ -621,7 +617,7 @@ class LanguageSeeder extends Seeder
             ],
             "th" => [
                 "name" => "Thai",
-                "native" => "ไทย / Phasa Thai"
+                "native" => "ไทย"
             ],
             "ti" => [
                 "name" => "Tigrinya",
@@ -629,10 +625,10 @@ class LanguageSeeder extends Seeder
             ],
             "tk" => [
                 "name" => "Turkmen",
-                "native" => "Туркмен / تركمن"
+                "native" => "Туркмен"
             ],
             "tl" => [
-                "name" => "Tagalog / Filipino",
+                "name" => "Tagalog",
                 "native" => "Tagalog"
             ],
             "tn" => [
@@ -665,7 +661,7 @@ class LanguageSeeder extends Seeder
             ],
             "ug" => [
                 "name" => "Uyghur",
-                "native" => "Uyƣurqə / ئۇيغۇرچە"
+                "native" => "Uyƣurqə"
             ],
             "uk" => [
                 "name" => "Ukrainian",
@@ -705,7 +701,7 @@ class LanguageSeeder extends Seeder
             ],
             "za" => [
                 "name" => "Zhuang",
-                "native" => "Cuengh / Tôô / 壮语"
+                "native" => "Cuengh"
             ],
             "zh" => [
                 "name" => "Chinese",
@@ -717,8 +713,11 @@ class LanguageSeeder extends Seeder
             ]
         ];
 
+        $languagesCollection = collect($languages)->map(function ($item, $key) {
+            $item['code'] = $key;
+            return $item;
+        });
 
-
-        DB::table('languages')->insert($languages);
+        DB::table('languages')->insert($languagesCollection->toArray());
     }
 }

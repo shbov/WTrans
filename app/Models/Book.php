@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Chapter;
 
 class Book extends Model
 {
@@ -17,35 +17,19 @@ class Book extends Model
 
         'language_id',
         'native_language_id',
-        'category_id'
+        'category_id',
+        'team_id'
     ];
 
-    protected static function boot()
-    {
-        parent::boot();
-
-        if (Auth::user()) {
-            static::creating(function ($model) {
-                $model->created_by = Auth::user()->id;
-
-                Auth::user()->books()->attach($model->id);
-            });
-
-            self::created(function ($model) {
-                Auth::user()->books()->attach($model->id);
-            });
-
-            self::deleting(function () {
-                Auth::user()->books()->detach();
-            });
-        }
-    }
-
     // Relations
-
     public function category()
     {
         return $this->belongsTo('App\Models\Category', 'category_id');
+    }
+
+    public function team()
+    {
+        return $this->belongsTo('App\Models\Team', 'team_id');
     }
 
     public function language()
@@ -60,10 +44,16 @@ class Book extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 
-    // is in ...
+    public function chapters()
+    {
+        return $this->hasMany(Chapter::class);
+    }
+
+
+    // is ...
     public function isBookMember($user_id)
     {
         return $this->users()->where('user_id', $user_id)->exists();
@@ -71,11 +61,15 @@ class Book extends Model
 
     public function isBookOwner($user_id)
     {
-        return $this->created_by == $user_id;
+        return $this->owner_id == $user_id;
+    }
+
+    public function owner()
+    {
+        return User::find($this->owner_id);
     }
 
     // Scopes
-
     public function scopeGetBooksByCategory($query, $category_id)
     {
         return $query->where('category_id', $category_id);
