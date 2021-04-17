@@ -15,7 +15,7 @@ class AddTeamsToBooksTable extends Migration
     {
         Schema::table('books', function (Blueprint $table) {
             $table->unsignedBigInteger('team_id')->nullable()->after('owner_id');
-            $table->foreign('team_id')->references('id')->on('teams');
+            $table->foreign('team_id')->references('id')->on('teams')->nullOnDelete();
         });
     }
 
