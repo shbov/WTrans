@@ -24,6 +24,13 @@ class BookController extends Controller
         return view('book.show', ['book' => $book]);
     }
 
+    public function edit(Book $book)
+    {
+        $this->authorize('update', $book);
+
+        return view('book.edit', ['book' => $book]);
+    }
+
     public function create()
     {
         $this->authorize('create', Book::class);
