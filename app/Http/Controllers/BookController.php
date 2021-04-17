@@ -46,6 +46,10 @@ class BookController extends Controller
             return redirect()->route('books.show', $book->id)->with('error', 'Вы уже присоединились к переводу.');
         }
 
+        if ($book->team && $book->team->hasUser(Auth::user())) {
+            return redirect()->route('books.show', $book->id)->with('error', 'Данный перевод привязан к вашей команде. Вам не нужно к нему присоединяться.');
+        }
+
         Auth::user()->joinBook($book);
         return redirect()->route('books.show', $book->id)->with('success', 'Вы присоединились к переводу.');
     }
@@ -55,11 +59,15 @@ class BookController extends Controller
         $this->authorize('leave', $book);
 
         if ($book->isBookOwner(Auth::user()->id)) {
-            return redirect()->route('books.show', $book->id)->with('error', 'Создатель не может покинуть перевод, его нужно удалить.');
+            return redirect()->route('books.show', $book->id)->with('error', 'Создатель не может покинуть перевод.');
         }
 
         if (!$book->isBookMember(Auth::user()->id)) {
-            return redirect()->route('books.show', $book->id)->with('error', 'Вы не находитесь в переводе');
+            return redirect()->route('books.show', $book->id)->with('error', 'Вы не находитесь в переводе.');
+        }
+
+        if ($book->team && $book->team->hasUser(Auth::user())) {
+            return redirect()->route('books.show', $book->id)->with('error', 'Данный перевод прикреплен к команде, вы не можете его покинуть.');
         }
 
         Auth::user()->leaveBook($book);
