@@ -16,7 +16,7 @@ class TeamBookManager extends Component
     /**
      * Mount the component.
      *
-     * @param  mixed  $team
+     * @param mixed $team
      * @return void
      */
     public function mount($team)

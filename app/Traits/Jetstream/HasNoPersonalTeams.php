@@ -2,15 +2,13 @@
 
 namespace App\Traits\JetStream;
 
-use Laravel\Jetstream\Jetstream;
-
 trait HasNoPersonalTeams
 {
 
     /**
      * Determine if the user owns the given team.
      *
-     * @param  mixed  $team
+     * @param mixed $team
      * @return bool
      */
     public function ownsTeam($team)
@@ -22,7 +20,7 @@ trait HasNoPersonalTeams
     /**
      * Determine if the given team is the current team.
      *
-     * @param  mixed  $team
+     * @param mixed $team
      * @return bool
      */
     public function isCurrentTeam($team)

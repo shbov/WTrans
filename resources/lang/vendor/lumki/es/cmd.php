@@ -11,5 +11,4 @@ return [
     'add_roles' => '¿Añadir Roles Superadmin, Admin, User?',
 
 
-
 ];

@@ -26,7 +26,6 @@ class UsersAndBooksSeeder extends Seeder
             )
             ->count(rand(5, 15))
             ->create()
-
             ->each(function ($user) {
                 Book::where('owner_id', $user->id)->each(function ($book) use ($user) {
                     $user->books()->attach($book->id);

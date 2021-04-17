@@ -2,18 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Traits\Jetstream\HasNoPersonalTeams;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Lab404\Impersonate\Models\Impersonate;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
-use Spatie\Permission\Traits\HasRoles;
-use Lab404\Impersonate\Models\Impersonate;
-use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasTeams;
-use App\Traits\Jetstream\HasNoPersonalTeams;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -82,7 +81,7 @@ class User extends Authenticatable
 
     public function belongsToAnyTeam()
     {
-        return (bool) optional($this->allTeams())->isNotEmpty();
+        return (bool)optional($this->allTeams())->isNotEmpty();
     }
 
     // Join & leave the book

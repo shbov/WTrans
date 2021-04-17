@@ -48,6 +48,11 @@ class BookPolicy
         return $this->checkPerm(false, "У вас нет доступа к просмотру данной книги"); //TODO сделать "пермишены" настройки книги, ака public/private book
     }
 
+    private function checkPerm(bool $access, string $message): Response
+    {
+        return $access ? Response::allow() : Response::deny($message);
+    }
+
     /**
      * Determine whether the user can create models.
      *
@@ -132,10 +137,5 @@ class BookPolicy
     {
         //TODO Тут нужна еще проверка на [open/close] Book
         return $user->can('books.leave');
-    }
-
-    private function checkPerm(bool $access, string $message): Response
-    {
-        return $access ? Response::allow() : Response::deny($message);
     }
 }

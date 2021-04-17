@@ -67,7 +67,7 @@ class CreateComponent extends Component
 
     public function mountTeamOptions()
     {
-        $user  = Auth::user();
+        $user = Auth::user();
         $teams = $user->allTeams();
 
         $this->teamOptions = $teams->map(function ($item) {

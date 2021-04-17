@@ -13,19 +13,22 @@
                     <div class="space-y-10">
                         <div class="px-4 py-5 sm:p-6 bg-white shadow sm:rounded-lg">
                             <div class="space-y-6">
-                            @foreach ($roles as $role)
-                                <div class="flex items-center justify-between">
-                                    <label class="flex items-center">
-                                        <input name="roles[]" type="checkbox" class="h-5 w-5 text-gray-800 border rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:text-gray-700 active:text-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" value="{{ $role->name }}" {{ $user->getRoleNames()->contains($role->name) ? "checked='checked'":"" }}>
-                                        <span class="ml-2 text-sm text-gray-700">{{ $role->name }}</span>
-                                    </label>
-                                </div>
-                            @endforeach
+                                @foreach ($roles as $role)
+                                    <div class="flex items-center justify-between">
+                                        <label class="flex items-center">
+                                            <input name="roles[]" type="checkbox"
+                                                   class="h-5 w-5 text-gray-800 border rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:text-gray-700 active:text-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150"
+                                                   value="{{ $role->name }}" {{ $user->getRoleNames()->contains($role->name) ? "checked='checked'":"" }}>
+                                            <span class="ml-2 text-sm text-gray-700">{{ $role->name }}</span>
+                                        </label>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                     <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
-                        <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                        <button type="submit"
+                                class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                             {{ __('lumki::ui.save') }}
                         </button>
                     </div>

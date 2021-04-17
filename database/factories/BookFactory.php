@@ -5,7 +5,6 @@ namespace Database\Factories;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Language;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BookFactory extends Factory

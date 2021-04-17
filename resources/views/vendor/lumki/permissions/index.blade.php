@@ -13,9 +13,9 @@
                         <div class="space-y-6">
                             <ol class="list-disc">
                                 @forelse ($permissions as $permission)
-                                <li>{{ $permission->name }}</li>
+                                    <li>{{ $permission->name }}</li>
                                 @empty
-                                <li>{{ __('lumki::ui.empty_permissions') }}</li>
+                                    <li>{{ __('lumki::ui.empty_permissions') }}</li>
                                 @endforelse
                             </ol>
                         </div>

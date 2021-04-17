@@ -14,23 +14,24 @@
                             <div class="px-3 py-4 flex justify-center">
                                 <table class="w-full text-md rounded mb-4">
                                     <tbody>
-                                        <tr class="border-b">
-                                            <th class="text-left p-3 px-5">{{ __('lumki::ui.table_role') }}</th>
-                                            <th class="text-left p-3 px-5">{{ __('lumki::ui.table_permissions') }}</th>
-                                            <th></th>
-                                        </tr>
-                                        @foreach ($roles as $role)
+                                    <tr class="border-b">
+                                        <th class="text-left p-3 px-5">{{ __('lumki::ui.table_role') }}</th>
+                                        <th class="text-left p-3 px-5">{{ __('lumki::ui.table_permissions') }}</th>
+                                        <th></th>
+                                    </tr>
+                                    @foreach ($roles as $role)
                                         <tr class="border-b hover:bg-orange-100 {{ $loop->odd ? 'bg-gray-100':"" }}">
                                             <td class="p-3 px-5">{{ $role->name }}</td>
                                             <td class="p-3 px-5">{{ $role->getPermissionNames()->join(", ") }}</td>
                                             <td class="p-3 px-5 flex justify-end">
                                                 <a
-                                                    class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150 mt-2 mr-2" href="{{ route('lumki.roles.edit', $role) }}">
+                                                    class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150 mt-2 mr-2"
+                                                    href="{{ route('lumki.roles.edit', $role) }}">
                                                     {{ __('lumki::ui.edit_permissions') }}
                                                 </a>
                                             </td>
                                         </tr>
-                                        @endforeach
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

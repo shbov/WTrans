@@ -1,11 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\BookController;
-use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
