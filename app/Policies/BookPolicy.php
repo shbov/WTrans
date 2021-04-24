@@ -42,10 +42,12 @@ class BookPolicy
             }
 
             return true;
+            // TODO
+            return $this->checkPerm(false, "У вас нет доступа к просмотру данной книги"); //TODO сделать "пермишены" настройки книги, ака public/private book
         }
 
         // TODO
-        return $this->checkPerm(false, "У вас нет доступа к просмотру данной книги"); //TODO сделать "пермишены" настройки книги, ака public/private book
+        return $this->checkPerm(false, "Для просмотра данной страницы необходимо войти в аккаунт"); //TODO сделать "пермишены" настройки книги, ака public/private book
     }
 
     private function checkPerm(bool $access, string $message): Response

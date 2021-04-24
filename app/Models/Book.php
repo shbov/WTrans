@@ -13,7 +13,6 @@ class Book extends Model
         'name',
         'native_name',
         'desc',
-
         'language_id',
         'native_language_id',
         'category_id',
@@ -46,17 +45,15 @@ class Book extends Model
         return $this->hasMany(Chapter::class);
     }
 
-    public function isBookMember($user_id)
-    {
-        return $this->users()->where('user_id', $user_id)->exists();
-    }
-
-
-    // is ...
-
     public function users()
     {
         return $this->belongsToMany(User::class)->withTimestamps();
+    }
+
+    // is ...
+    public function isBookMember($user_id)
+    {
+        return $this->users()->where('user_id', $user_id)->exists();
     }
 
     public function isBookOwner($user_id)

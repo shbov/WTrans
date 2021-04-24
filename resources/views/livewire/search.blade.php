@@ -2,7 +2,7 @@
     <input type="text"
            class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full"
            placeholder="{{ $searchPlaceholders[array_rand($searchPlaceholders)] }}" wire:model.debounce.300ms="query"
-           wire:keydown.escape="resetFilters" wire:keydown.enter="select"/>
+           wire:keydown.escape="resetFilters"/>
 
     <div wire:loading
          class="absolute w-full z-50 bg-white border border-gray-300 mt-1 mh-48 overflow-hidden overflow-y-scroll rounded-md shadow-md">
